@@ -4,7 +4,7 @@ namespace NewCryptoApp.Core.API
 {
     class Respones<T> where T : class
     {
-        public bool Successful => Result == null;
+        public bool Successful => Result != null;
         public readonly Exception Error;
         public readonly T Result;
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NewCryptoApp.Core.API.CoinGesko.Model;
+using NewCryptoApp.Core.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +18,14 @@ using System.Windows.Shapes;
 namespace NewCryptoApp.Core.MVVM.View
 {
     /// <summary>
-    /// Логика взаимодействия для Page2.xaml
+    /// Логика взаимодействия для InfoPageView.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class InfoPageView : Page
     {
-        public Page2()
+        public InfoPageView(CoinsDTO selcted)
         {
             InitializeComponent();
-        }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            await Navigate.Navigate.GoToAsync(nameof(Page1));
-
+            ((InfoPageViewModel)DataContext).SelectedDto = selcted;
         }
     }
 }

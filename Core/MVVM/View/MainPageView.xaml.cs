@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewCryptoApp.Core.API.CoinGesko;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,18 +17,15 @@ using System.Windows.Shapes;
 namespace NewCryptoApp.Core.MVVM.View
 {
     /// <summary>
-    /// Логика взаимодействия для Page1.xaml
+    /// Логика взаимодействия для MainPageView.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class MainPageView : Page
     {
-        public Page1()
+        public MainPageView()
         {
             InitializeComponent();
+            
         }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            await Navigate.Navigate.GoToAsync(nameof(Page2));
-        }
+       
     }
 }

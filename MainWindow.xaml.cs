@@ -12,15 +12,15 @@ namespace NewCryptoApp
         public MainWindow()
         {
             InitializeComponent();
-            Core.Navigate.Navigate.RegisterFrame(ref MainFrame);
+            Core.Navigate.RegisterFrame(ref MainFrame);
             RegistryPages();
-            Core.Navigate.Navigate.GoTo(nameof(Page1));
+            Core.Navigate.GoTo(nameof(MainPageView));
         }
 
         private void RegistryPages()
         {
-            Core.Navigate.Navigate.RegisterPage<Page1>();
-            Core.Navigate.Navigate.RegisterPage<Page2>();
+            Core.Navigate.RegisterPage<MainPageView>();
+            Core.Navigate.RegisterPage<InfoPageView>();
         }
     }
 }

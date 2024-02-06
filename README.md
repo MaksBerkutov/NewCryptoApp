@@ -3,19 +3,28 @@
 ___
 
 ## Реализованный функционал
-- ToDo
+- Отображение топ N валют (количество регулируеться).
+- Логику многостраничного приложения с навигацией.
+- MVVM 
 - ToDo
 - ToDo
 ## Структура проекта
 ```
+|---Image/                         // Изображения для проекта
 |---Core/
     |---API/                       // Основные классы и функции для работы с API
+    |   |---CoinGesko/             // Папка с классом для работы с API CoinGesko
+        |   |---Model/             // DTO модели для API CoinGesko
     |   |---APIException/          // Папка для классов веб исключений 
     |   |   |---ApiExtentions.cs   // Класс который описует веб исключения
     |   |---BaseAPI.cs             // Базовый класс для упрощения работы с API
     |   |---Respones.cs            // Базовый класс для упрощения работы с API
-    |---Logger/
-    |   |---Logger.cs              // Класс отвечающий за запись ошибок в лог файл
+    |---MVVM/                      // Файлы MVVM Паттерна
+    |   |---Model/                 // Модели MVVM Паттерна
+    |   |---View/                  // Представления MVVM Паттерна
+    |   |---ViewModel/             // Отображения MVVM Паттерна
+    |---Logger.cs                  // Класс отвечающий за запись ошибок в лог файл
+    |---Navigate.cs                // Класс отвечающий за переходы между формами
 ```
 ## Классы
 ### BaseApi
@@ -91,4 +100,56 @@ class ExpampleApi{
 - `Error`: Информация о ошибках если запрос не успешен 
 - `Result`: Результат (DTO Class) если запрос успешен
 ### ApiException
-Не чего особенного просто класс расширяющий 
+Не чего особенного просто класс расширяющий стандартный Exeption.
+### Navigate
+Статичиский класс отвечающий за переходы. 
+Для начала нужно зарегистрировать страницу с помощью `RegisterPage`
+
+Пример:
+```cs
+Navigate.RegisterPage<MainPageView>();
+```
+
+И зарегистрировать фрейм в который будет подгружаться страници `RegisterFrame`, фрейм в отличии от страниц `МОЖЕТ БЫТЬ ТОЛЬКО ОДИН!`.
+Следовательно каждый последующий вызов этой функции просто перезапишет прошлый фрейм.
+
+Пример:
+```cs
+Navigate.RegisterFrame(ref MainFrame);
+```
+
+Ну и остаеться перейти на вашу форму из любого уголка программы с помощью методов `GoTo` `GoToAsync`.
+Методы перегружены и имеют возможность перейти на форму с конструктором, полезнно если нужно например отобразить форму которая должна отображать подробную информацию о выбранном товаре.
+В этом проекте функция с прараметрами использовалась для перехода с главной формы на InfoPage в которую нужно передать выбранный элемент.
+
+```cs
+  //MainPageViewModel.cs
+  private CoinsDTO selectedCoin = null;
+  public CoinsDTO SelectedCoin
+  {
+      get => selectedCoin;
+      set => SetProperty(ref selectedCoin, value, nameof(SelectedCoin)); 
+       
+  }
+
+  public async void GoToGraphics(object obj = null)
+  {
+      await Navigate.GoToAsync(nameof(InfoPageView), SelectedCoin);
+  }
+  ...
+
+  //InfoView.cs
+  public InfoPageView(CoinsDTO selcted)
+  {
+      InitializeComponent();
+      ((InfoPageViewModel)DataContext).SelectedDto = selcted;
+  }
+  ...
+
+  //InfoViewModel.cs
+  public CoinsDTO SelectedDto {  get; set; }
+  ...
+
+```
+
+
