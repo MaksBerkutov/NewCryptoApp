@@ -4,10 +4,63 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewCryptoApp"
+        xmlns:viewModels="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-
+        Title="MainWindow" Height="500" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="MenuItemButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="20"/>
+            <!-- Другие свойства стиля, которые вы хотите задать -->
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Panel.ZIndex="1"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="453*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="76">
+            <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToHomePage}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label FontSize="16" Content="Домой"/>
+                        <Image Source="/Image/Icons/Home.png" Width="30"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToFindPage}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label FontSize="16" Content="Поиск"/>
+                        <Image Source="/Image/Icons/Search.png" Width="30"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToConverterPage}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label FontSize="16" Content="Конвертор"/>
+                        <Image Source="/Image/Icons/Convertor.png" Width="30"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToSettingPage}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label FontSize="16" Content="Настройки"/>
+                        <Image Source="/Image/Icons/Settings.png" Width="30"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <Frame  Content="{Binding Content,Mode=TwoWay}" Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" Panel.ZIndex="1"/>
+
     </Grid>
 </Window>

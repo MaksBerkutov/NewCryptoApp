@@ -14,7 +14,7 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         public Command Update { get; }
         public Command ToGraphics { get; }
         public Command ToInfo { get; }
-
+         
 
         public MainPageViewModel()
         {

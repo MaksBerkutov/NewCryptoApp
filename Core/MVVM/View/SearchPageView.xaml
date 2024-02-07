@@ -14,7 +14,7 @@
         <convert:MyConverter x:Key="Converts"/>
     </Page.Resources>
     <Page.DataContext>
-        <viewModels:SearchPageViewModel x:Name="ViewModel" />
+        <viewModels:SearchPageViewModel/>
     </Page.DataContext>
     <Grid>
         

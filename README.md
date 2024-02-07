@@ -6,7 +6,7 @@ ___
 - Отображение топ N валют (количество регулируеться).
 - Логику многостраничного приложения с навигацией.
 - MVVM 
-- ToDo
+- Поиск (Монеты, Обмены, Нфт)
 - ToDo
 ## Структура проекта
 ```
@@ -25,20 +25,21 @@ ___
     |   |---ViewModel/             // Отображения MVVM Паттерна
     |---Logger.cs                  // Класс отвечающий за запись ошибок в лог файл
     |---Navigate.cs                // Класс отвечающий за переходы между формами
+    |---Convert.cs                 // Конвертер для XAML нужный в оснновном для корректной настройки WrapPanel на некоторых страниц
 ```
 ## Классы
 ### BaseApi
 Класс который был создан для упрощения работы с функциями API.
 Как бы выглядело без него: 
 ```cs
-class ExampleResponeData {
+class ModelDTO {
     public int id {get; set;}
     public string name {get; set;}
 }
 class ExpampleApi{
     public readonly string ServerUrl = "https/example.com/api";
     
-    public async Task<ExampleResponeData> GetData()
+    public async Task<ModelDTO> GetData()
     {
         using (HttpClient client = new HttpClient())
         {
@@ -49,7 +50,7 @@ class ExpampleApi{
     
                 if (!response.IsSuccessStatusCode) return null;
                 string content = await response.Content.ReadAsStringAsync();
-                var resultData = JsonConvert.DeserializeObject<ExampleResponeData>(content);
+                var resultData = JsonConvert.DeserializeObject<ModelDTO>(content);
 
                 return resultData;
             }
@@ -66,27 +67,25 @@ class ExpampleApi{
 Но всё будет окей ровно до того момента пока мы работаем с одним API, а если нужно добавить интеграция с ещё одним API?
 Ну вот тут и приходит на ум создать класс который будет регулировать эти действия. Это и есть класс BaseApi.
 Он решает сразу несколько проблем.
-- 1. Логированние.
-- 2. Выполнение и получение данных.
-- 3. Обработка исключений.
+-  [x] Логированние.
+-  [x] Выполнение и получение данных.
+-  [x] Обработка исключений.
+
 Вот как прошлий пример будет выглядить с нми:
 ```cs
-class ExampleResponeData {
+class ModelDTO {
     public int id {get; set;}
     public string name {get; set;}
 }
 class ExpampleApi{
-    public  ExpampleApi():base("https/example.com/api",nameof(ExpampleApi)){
+    private readonly BaseApi instance = new BaseApi("https/example.com/api",nameof(ExpampleApi));
+    public  ExpampleApi(){
         
     }
     
-    public async Task<ExampleResponeData> GetData()
+    public async Task<ModelDTO> GetData()
     {
-        var respone = await GetAsync<ExampleResponeData>("/data");
-        if(!respone.Successful){
-            throw respone.Error;
-        }
-        return respone.Result;
+        return await instance.StandartHandler<FindDTO>("example");
     }
     public async Task<string> GetInfo()...
 }
@@ -110,16 +109,37 @@ class ExpampleApi{
 Navigate.RegisterPage<MainPageView>();
 ```
 
-И зарегистрировать фрейм в который будет подгружаться страници `RegisterFrame`, фрейм в отличии от страниц `МОЖЕТ БЫТЬ ТОЛЬКО ОДИН!`.
-Следовательно каждый последующий вызов этой функции просто перезапишет прошлый фрейм.
+Дальше в VM страници нужно прибиндить контент к фрему, и реализовать обработчик события для обновления. 
 
 Пример:
 ```cs
+    // MV
+    public MainWindowViewModel()
+	{
+        Navigate.RegisterPage<MainPageView>(); //Регестрируем страници
+        ...
+        Navigate.OnOpenPage += Navigate_OnOpenPage;// Создаём обработчик 
+    }
+
+    private void Navigate_OnOpenPage(object content)
+    {
+        Content = content;
+    }
+
+    private object content;
+
+	public object Content {...}
+```
+
+Биндим:
+```xaml
+ <Frame  Content="{Binding Content,Mode=TwoWay}" .../>
 Navigate.RegisterFrame(ref MainFrame);
 ```
 
 Ну и остаеться перейти на вашу форму из любого уголка программы с помощью методов `GoTo` `GoToAsync`.
-Методы перегружены и имеют возможность перейти на форму с конструктором, полезнно если нужно например отобразить форму которая должна отображать подробную информацию о выбранном товаре.
+
+Также данные методы перегружены и имеют возможность перейти на форму с конструктором, полезнно если нужно например отобразить форму которая должна отображать подробную информацию о выбранном товаре.
 В этом проекте функция с прараметрами использовалась для перехода с главной формы на InfoPage в которую нужно передать выбранный элемент.
 
 ```cs
@@ -151,5 +171,3 @@ Navigate.RegisterFrame(ref MainFrame);
   ...
 
 ```
-
-

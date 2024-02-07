@@ -12,16 +12,6 @@ namespace NewCryptoApp
         public MainWindow()
         {
             InitializeComponent();
-            Core.Navigate.RegisterFrame(ref MainFrame);
-            RegistryPages();
-            Core.Navigate.GoTo(nameof(MainPageView));
-        }
-
-        private void RegistryPages()
-        {
-            Core.Navigate.RegisterPage<MainPageView>();
-            Core.Navigate.RegisterPage<InfoPageView>();
-            Core.Navigate.RegisterPage<SearchPageView>();
         }
     }
 }

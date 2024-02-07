@@ -11,7 +11,7 @@
       Title="InfoPageView">
 
     <Page.DataContext>
-        <viewModels:InfoPageViewModel   x:Name="ViewModel" />
+        <viewModels:InfoPageViewModel />
     </Page.DataContext>
     <Grid>
        
