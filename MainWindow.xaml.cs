@@ -21,6 +21,7 @@ namespace NewCryptoApp
         {
             Core.Navigate.RegisterPage<MainPageView>();
             Core.Navigate.RegisterPage<InfoPageView>();
+            Core.Navigate.RegisterPage<SearchPageView>();
         }
     }
 }

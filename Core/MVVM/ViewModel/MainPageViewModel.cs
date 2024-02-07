@@ -3,6 +3,7 @@ using NewCryptoApp.Core.API.CoinGesko.Model;
 using NewCryptoApp.Core.MVVM.View;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
@@ -18,9 +19,9 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         public MainPageViewModel()
         {
             UpdateItems();
-            Update = new Command(UpdateItems, (obj) => limit > 0);
-            ToGraphics = new Command(GoToGraphics, (obj) => selectedCoin != null);
-            ToInfo = new Command(GoToGraphics, (obj) => selectedCoin != null);
+            Update = new Command(UpdateItems, (_) => limit > 0);
+            ToGraphics = new Command(GoToGraphics, (_) => selectedCoin != null);
+            ToInfo = new Command(GoToGraphics, (_) => selectedCoin != null);
         }
         public async void GoToGraphics(object obj = null)
         {
@@ -28,17 +29,8 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         }
         public async void UpdateItems(object obj = null)
         {
-            try
-            {
-                var newArrayCoins = await CoinGeskoAPI.GetTopCoins(limit: limit);
-                ArrayCoins = newArrayCoins;
-
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            var collection = await CoinGeskoAPI.GetTopCoins(limit: limit);
+            Coins = collection.ToArray();
 
         }
 
@@ -55,12 +47,12 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             }
         }
 
-        private CoinsDTO[] arrayCoins;
+        private CoinsDTO[] coins;
 
-        public CoinsDTO[] ArrayCoins
+        public CoinsDTO[] Coins
         {
-            get => arrayCoins;
-            set => SetProperty(ref arrayCoins, value, nameof(ArrayCoins));
+            get => coins;
+            set => SetProperty(ref coins, value);
         }
 
         private CoinsDTO selectedCoin = null;
@@ -68,7 +60,7 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         public CoinsDTO SelectedCoin
         {
             get => selectedCoin;
-            set => SetProperty(ref selectedCoin, value, nameof(SelectedCoin)); 
+            set => SetProperty(ref selectedCoin, value); 
              
         }
         

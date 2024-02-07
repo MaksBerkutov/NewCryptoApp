@@ -9,11 +9,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InfoPageView">
-  
+
     <Page.DataContext>
         <viewModels:InfoPageViewModel   x:Name="ViewModel" />
     </Page.DataContext>
     <Grid>
-        
+       
     </Grid>
 </Page>

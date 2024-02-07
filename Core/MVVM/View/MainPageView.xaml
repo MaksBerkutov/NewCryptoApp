@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewCryptoApp.Core.MVVM.View"
-       xmlns:viewModels="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
+      xmlns:viewModels="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPageView">
@@ -34,7 +34,7 @@
                         <ColumnDefinition Width="7*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Лимит :"  HorizontalAlignment="Center" Width="52"/>
-                    <TextBox Grid.Column="1" Margin="5,0,5,0" Text="{Binding Limit,Mode=TwoWay}"  Style="{StaticResource BottomAlignedTextBoxStyle}"/>
+                    <TextBox Grid.Column="1" Margin="5,0,5,0" Text="{Binding Limit,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource BottomAlignedTextBoxStyle}"/>
                     <Button Grid.Column="2" BorderBrush="Transparent" Background="Transparent" Command="{Binding Update}">
                         <StackPanel>
                             <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Refresh.png" Width="18" Height="20" />
@@ -46,7 +46,7 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToInfo}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Margin="10 ">Информация</Label>
-                        <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Refresh.png" Width="18" Height="20" />
+                        <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Info.png" Width="18" Height="20" />
                     </StackPanel>
                 </Button>
             </Border>
@@ -54,14 +54,14 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToGraphics}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Margin="10 ">График</Label>
-                        <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Refresh.png" Width="18" Height="20" />
+                        <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Chart.png" Width="18" Height="20" />
                     </StackPanel>
                 </Button>
             </Border>
 
         </Grid>
         
-        <ListBox  HorizontalContentAlignment="Stretch" Background="Transparent" Grid.Row="1" ItemsSource="{Binding ArrayCoins,Mode=TwoWay}" SelectedItem="{Binding SelectedCoin}">
+        <ListBox  HorizontalContentAlignment="Stretch" Background="Transparent" Grid.Row="1" ItemsSource="{Binding Coins,Mode=TwoWay}" SelectedItem="{Binding SelectedCoin}">
             
             <ListBox.ItemTemplate>
                 <DataTemplate>

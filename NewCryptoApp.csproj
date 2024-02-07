@@ -66,6 +66,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Core\MVVM\View\SearchPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,12 +82,18 @@
     <Compile Include="Core\API\BaseAPI.cs" />
     <Compile Include="Core\API\CoinGesko\CoinGeskoAPI.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinsDTO.cs" />
+    <Compile Include="Core\API\CoinGesko\Model\Find\FindCoinsDTO.cs" />
+    <Compile Include="Core\API\CoinGesko\Model\Find\FindDTO.cs" />
+    <Compile Include="Core\API\CoinGesko\Model\Find\FindExchangesDTO.cs" />
+    <Compile Include="Core\API\CoinGesko\Model\Find\FindNftDTO.cs" />
     <Compile Include="Core\API\Respones.cs" />
+    <Compile Include="Core\Convert.cs" />
     <Compile Include="Core\Lang\LangController.cs" />
     <Compile Include="Core\Logger.cs" />
     <Compile Include="Core\MVVM\ViewModel\InfoPageViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\MainPageViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="Core\MVVM\ViewModel\SearchPageViewModel.cs" />
     <Compile Include="Core\MVVM\View\InfoPageView.xaml.cs">
       <DependentUpon>InfoPageView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +101,9 @@
       <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\MVVM\ViewModel\ViewModel.cs" />
+    <Compile Include="Core\MVVM\View\SearchPageView.xaml.cs">
+      <DependentUpon>SearchPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\Navigate.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -132,6 +145,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Icons\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icons\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icons\Chart.png" />
+    <Resource Include="Image\Icons\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icons\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icons\Coin.png" />
+    <Resource Include="Image\Icons\Exchange.png" />
+    <Resource Include="Image\Icons\Nft.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
