@@ -1,11 +1,6 @@
 ﻿using NewCryptoApp.Core.API.CoinGesko;
 using NewCryptoApp.Core.API.CoinGesko.Model;
 using NewCryptoApp.Core.MVVM.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewCryptoApp.Core.MVVM.ViewModel
 {
@@ -16,34 +11,39 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         private async void LoadData(string id)
         {
             MoreInfo = await CoinGeskoAPI.GetMoreInfoCoin(id);
-            Store<MoreInfoCoins>.Register(MoreInfo);
+            Store.Register(MoreInfo);
 
         }
         public InfoPageViewModel()
         {
           
-            var coin = Store<CoinsDTO>.Get();
-            Image = coin.Image;
+            var coin = Store.GetOrNull<CoinsDTO>();
+            var findCoin = Store.GetOrNull<FindCoinsDTO>();
+            Image = coin == null ? findCoin.Image : coin.Image;
             GoToTradePage = new Command(GoToTrade);
-            var saved = Store<MoreInfoCoins>.GetOrNull();
-            if (saved?.Id.ToLower()!=coin.Id.ToLower()) //Снижаем нагрузку на API при переходе от трейда сюда (меньше запросв дольше можно прожить на пробной версии)
-                LoadData(coin.Id);
-            else
+            Back = new Command(async (_) =>
+            {
+                await Navigate.Back();
+            });
+            var saved = Store.GetOrNull<MoreInfoCoinsDTO>();
+            if (saved?.Id.ToLower() == coin?.Id.ToLower() && saved?.Id.ToLower() == findCoin?.Id.ToLower())  //Снижаем нагрузку на API при переходе от трейда сюда (меньше запросв дольше можно прожить на пробной версии)
                 MoreInfo = saved;
+            else
+                LoadData(coin == null ? findCoin.Id : coin.Id); 
 
 
 
         }
         public async void GoToTrade(object obj)
         {
-            Store<TickerDTO[]>.Register(moreInfo.Tickers);
+            Store.Register(moreInfo.Tickers);
             await Navigate.GoToAsync(nameof(TradePageView));
         }
         public string Image { get; }
        
-        private MoreInfoCoins moreInfo;
+        private MoreInfoCoinsDTO moreInfo;
 
-        public MoreInfoCoins MoreInfo
+        public MoreInfoCoinsDTO MoreInfo
         {
             get => moreInfo;
             set => SetProperty(ref moreInfo, value);

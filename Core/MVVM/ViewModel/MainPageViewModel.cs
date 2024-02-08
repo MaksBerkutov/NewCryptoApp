@@ -1,11 +1,7 @@
 ﻿using NewCryptoApp.Core.API.CoinGesko;
 using NewCryptoApp.Core.API.CoinGesko.Model;
 using NewCryptoApp.Core.MVVM.View;
-using System;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Windows;
 
 namespace NewCryptoApp.Core.MVVM.ViewModel
 {
@@ -20,18 +16,22 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         {
             UpdateItems();
             Update = new Command(UpdateItems, (_) => limit > 0);
-            ToGraphics = new Command(GoToInfo, (_) => selectedCoin != null);
+            ToGraphics = new Command(GoToGraphics, (_) => selectedCoin != null);
             ToInfo = new Command(GoToInfo, (_) => selectedCoin != null);
         }
         public async void GoToInfo(object obj = null)
         {
-            Store<CoinsDTO>.Clear();
-            Store<CoinsDTO>.Register(selectedCoin);
+            Store.Register(selectedCoin);
             await Navigate.GoToAsync(nameof(InfoPageView));
+        }
+        public async void GoToGraphics(object obj = null)
+        {
+            Store.Register(selectedCoin);
+            await Navigate.GoToAsync(nameof(ChartPageView));
         }
         public async void UpdateItems(object obj = null)
         {
-            var collection = await CoinGeskoAPI.GetTopCoins(limit: limit);
+            var collection = await CoinGeskoAPI.GetTopCoins(Limit: limit);
             Coins = collection.ToArray();
 
         }

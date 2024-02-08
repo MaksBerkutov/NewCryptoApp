@@ -18,7 +18,7 @@ namespace NewCryptoApp.Core.API
             ServerUri = serverUri;
         }
 
-        public async Task<Respones<T>> GetAsync<T>(string routePath) where T : class
+        public async Task<Respones<T>> GetAsync<T>(string routePath,Func<dynamic,string> Convertor = null) where T : class
         {
 
             try
@@ -37,6 +37,8 @@ namespace NewCryptoApp.Core.API
                 }
                  
                 string content = await response.Content.ReadAsStringAsync();
+                content = Convertor != null ? 
+                    Convertor?.Invoke(JsonConvert.DeserializeObject<dynamic>(content)) : content;
                 var resultData = JsonConvert.DeserializeObject<T>(content);
                 return new Respones<T>(result: resultData);
             }
@@ -51,9 +53,9 @@ namespace NewCryptoApp.Core.API
             MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             return new T();
         }
-        public async Task<T> StandartHandler<T>(string routePath) where T : class,new()
+        public async Task<T> StandartHandler<T>(string routePath, Func<dynamic, string> Convertor = null) where T : class,new()
         {
-            var response = await GetAsync<T>(routePath);
+            var response = await GetAsync<T>(routePath,Convertor);
             if (!response.Successful) return HandlerError<T>(response.Error);
 
             return response.Result;

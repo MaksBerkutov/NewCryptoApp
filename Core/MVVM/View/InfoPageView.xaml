@@ -16,8 +16,9 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel  Orientation="Horizontal">
                 <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
-
                     <StackPanel   HorizontalAlignment="Center">
+                        <Image Source="{Binding Image}" Height="100" />
+                       
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="Id: "/>
@@ -86,6 +87,7 @@
                                 <Label Content="%"/>
                             </StackPanel>
                         </Border>
+                        
                         <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding GoToTradePage}">
                             <StackPanel Orientation="Horizontal">
                                 <Label  FontSize="15" Content="Trade"/>
@@ -93,6 +95,14 @@
 
                             </StackPanel>
                            
+                        </Button>
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label  FontSize="15" Content="Back"/>
+                                <Image Source="/Image/Icons/Back.png" />
+
+                            </StackPanel>
+
                         </Button>
 
                     </StackPanel>

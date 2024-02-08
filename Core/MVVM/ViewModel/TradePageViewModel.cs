@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewCryptoApp.Core.MVVM.ViewModel
 {
@@ -26,17 +24,17 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
 
                async (_) =>
                {
-                   Store<TickerDTO[]>.Clear();
-                   await Navigate.GoToAsync(nameof(InfoPageView));
+                   Store.Clear<TickerDTO[]>();
+                   await Navigate.Back();
                }
                );
             GoToMoreInfoExch = new Command(async (_) =>
             {
-                Store<MarketDTO>.Register(selectedTicker.Market);
+                Store.Register(selectedTicker.Market);
                 await Navigate.GoToAsync(nameof(MoreInfoExchangesView));
             },
              (_) => selectedTicker != null);
-            Tickers = Store<TickerDTO[]>.Get();
+            Tickers = Store.Get<TickerDTO[]>();
             BaseCoin = Tickers.ToList().Select(item=>item.Base).Distinct().ToArray();
             TargetCoin = Tickers.ToList().Select(item => item.Target).Distinct().ToArray();
             Filter();

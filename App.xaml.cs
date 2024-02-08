@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NewCryptoApp.Core.MVVM.View;
+using NewCryptoApp.Core;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,14 @@ namespace NewCryptoApp
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Navigate.RegisterStaticPage<MainPageView>();
+            Navigate.RegisterPage<InfoPageView>();
+            Navigate.RegisterPage<SearchPageView>();
+            Navigate.RegisterPage<ChartPageView>();
+            Navigate.RegisterPage<MoreInfoExchangesView>();
+            Navigate.RegisterPage<TradePageView>();
+        }
     }
 }

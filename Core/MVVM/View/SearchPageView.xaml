@@ -110,7 +110,17 @@
 
                                             </StackPanel>
                                         </Border>
-                                        
+                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
+                                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.ToMoreCoins, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" >
+                                                <Button.Content>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="More info"/>
+                                                        <Image Source="/Image/Icons/Info.png" />
+                                                    </StackPanel>
+                                                </Button.Content>
+                                            </Button>
+                                        </Border>
+
                                     </WrapPanel>
                                 </StackPanel>
                             </Border>
@@ -154,6 +164,16 @@
                                                 <Label Content="MarketType: "/>
                                                 <TextBlock Text="{Binding MarketType}" Margin=" 5 5 5 5"/>
                                             </StackPanel>
+                                        </Border>
+                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
+                                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.ToMoreExchenges, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" >
+                                                <Button.Content>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="More info"/>
+                                                        <Image Source="/Image/Icons/Info.png" />
+                                                    </StackPanel>
+                                                </Button.Content>
+                                            </Button>
                                         </Border>
 
 

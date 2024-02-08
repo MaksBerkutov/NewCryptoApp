@@ -1,6 +1,5 @@
 ﻿using NewCryptoApp.Core.API.CoinGesko;
 using NewCryptoApp.Core.API.CoinGesko.Model;
-using NewCryptoApp.Core.MVVM.View;
 using System.Diagnostics;
 
 namespace NewCryptoApp.Core.MVVM.ViewModel
@@ -17,15 +16,16 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         private async void LoadData(string id)
         {
             Exchanges = await CoinGeskoAPI.GetMoreInfoExchange(id);
-            Store<MoreInfoExchangesDTO>.Register(Exchanges);
+            Store.Register(Exchanges);
         }
         private bool ValidateUrl(string url) => url != null && url != string.Empty;
         public MoreInfoExchangesViewModel()
         {
             Back = new Command(async (_) =>
             {
-                Store<MarketDTO>.Clear();
-                await Navigate.GoToAsync(nameof(TradePageView));
+                Store.Clear<MarketDTO>();
+
+                await Navigate.Back();
             });
             GoToFacebook = new Command((_) => Process.Start(Exchanges.FacebookUrl), (_) => ValidateUrl(Exchanges?.FacebookUrl));
             GoToReddit = new Command((_) => Process.Start(Exchanges.RedditUrl), (_) => ValidateUrl(Exchanges?.RedditUrl));
@@ -34,13 +34,14 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             GoToSite = new Command((_) => Process.Start(Exchanges.MainUrl), (_) => ValidateUrl(Exchanges?.MainUrl));
 
 
-            var market = Store<MarketDTO>.Get();
-            var save = Store<MoreInfoExchangesDTO>.GetOrNull();
-            if (save?.Name.ToLower() == market.Name.ToLower())
+            var market = Store.GetOrNull<MarketDTO>();
+            var findMarket = Store.GetOrNull<FindExchangesDTO>();
+            var save = Store.GetOrNull<MoreInfoExchangesDTO>();
+            if (save?.Name.ToLower() == market?.Name.ToLower() && save?.Name.ToLower() == findMarket?.Name.ToLower())
                 Exchanges = save;
-            else 
-                LoadData(market.Id);
-            
+            else
+                LoadData(market == null ? findMarket.Id : market.Id);
+
         }
 
         private MoreInfoExchangesDTO exchanges;

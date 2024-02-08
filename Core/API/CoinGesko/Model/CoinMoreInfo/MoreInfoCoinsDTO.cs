@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewCryptoApp.Core.API.CoinGesko.Model
 {
-    public class MoreInfoCoins
+    public class MoreInfoCoinsDTO
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

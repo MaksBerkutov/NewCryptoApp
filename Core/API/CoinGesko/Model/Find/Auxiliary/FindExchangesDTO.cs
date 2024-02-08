@@ -12,7 +12,17 @@ namespace NewCryptoApp.Core.API.CoinGesko.Model
         public string Name { get; set; }
 
         [JsonProperty(PropertyName = "large")]
-        public string Image { get; set; }
+        public string Image
+        {
+            get
+            {
+                if (!image.StartsWith("http")) return "https://icons.veryicon.com/png/o/miscellaneous/myicon-1/none-1.png";
+                return image;
+            }
+            set => image = value;
+        }
+        private string image;
+       
 
         public override string ToString() => Name;
     }

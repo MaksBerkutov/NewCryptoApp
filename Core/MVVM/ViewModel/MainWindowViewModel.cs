@@ -1,9 +1,4 @@
 ﻿using NewCryptoApp.Core.MVVM.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewCryptoApp.Core.MVVM.ViewModel
 {
@@ -21,12 +16,7 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             GoToHomePage = CreateCommandNavigate(nameof(MainPageView));
             GoToSettingPage = CreateCommandNavigate(nameof(SearchPageView));
             GoToConverterPage = CreateCommandNavigate(nameof(SearchPageView));
-            GoToFindPage = CreateCommandNavigate(nameof(SearchPageView));
-            Navigate.RegisterPage<MainPageView>();
-            Navigate.RegisterPage<InfoPageView>();
-            Navigate.RegisterPage<SearchPageView>();
-            Navigate.RegisterPage<MoreInfoExchangesView>();
-            Navigate.RegisterPage<TradePageView>();
+            GoToFindPage = CreateCommandNavigate(nameof(SearchPageView));  
             Navigate.OnOpenPage += Navigate_OnOpenPage;
 
             Navigate.GoTo(nameof(MainPageView));

@@ -14,6 +14,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,11 +37,57 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GLWpfControl, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.GLWpfControl.3.3.0\lib\net452\GLWpfControl.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="OpenTK, Version=3.3.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.3.3.1\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="ScottPlot, Version=5.0.21.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.5.0.21\lib\net462\ScottPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="ScottPlot.WPF, Version=5.0.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.WPF.5.0.21\lib\net462\ScottPlot.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.2.88.7\lib\net462\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Desktop.Common, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.Views.Desktop.Common.2.88.7\lib\net462\SkiaSharp.Views.Desktop.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.WPF, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.Views.WPF.2.88.7\lib\net462\SkiaSharp.Views.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.4.7.3\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Core\MVVM\View\ChartPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Core\MVVM\View\InfoPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +141,7 @@
     <Compile Include="Core\API\APIException\ApiExtentions.cs" />
     <Compile Include="Core\API\BaseAPI.cs" />
     <Compile Include="Core\API\CoinGesko\CoinGeskoAPI.cs" />
+    <Compile Include="Core\API\CoinGesko\Model\ChartDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinsDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\Auxiliary\ConvertedDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\Auxiliary\DescriptionDTO.cs" />
@@ -97,19 +150,28 @@
     <Compile Include="Core\API\CoinGesko\Model\Find\Auxiliary\FindExchangesDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\Find\Auxiliary\FindNftDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\Auxiliary\MarketDTO.cs" />
-    <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\MoreInfoCoins.cs" />
+    <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\MoreInfoCoinsDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\Auxiliary\TickerDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\MoreInfoExchangesDTO.cs" />
+    <Compile Include="Core\API\CryptoCompare\CryptoCompareAPI.cs" />
+    <Compile Include="Core\API\CryptoCompare\Model\ChartHistoryDTO.cs" />
+    <Compile Include="Core\API\CryptoCompare\Model\ChartHistoryPointDTO.cs" />
     <Compile Include="Core\API\Respones.cs" />
+    <Compile Include="Core\Services\Chart\ChartTypes\CandlestickChart.cs" />
+    <Compile Include="Core\Services\Chart\ChartService.cs" />
     <Compile Include="Core\Convert.cs" />
     <Compile Include="Core\Lang\LangController.cs" />
     <Compile Include="Core\Logger.cs" />
+    <Compile Include="Core\MVVM\ViewModel\ChartPageViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\InfoPageViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\MainPageViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\MainWindowViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\MoreInfoExchangesViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\SearchPageViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\TradePageViewModel.cs" />
+    <Compile Include="Core\MVVM\View\ChartPageView.xaml.cs">
+      <DependentUpon>ChartPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\MVVM\View\InfoPageView.xaml.cs">
       <DependentUpon>InfoPageView.xaml</DependentUpon>
     </Compile>
@@ -127,6 +189,9 @@
       <DependentUpon>TradePageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\Navigate.cs" />
+    <Compile Include="Core\Services\Chart\ChartTypes\OHLCChart.cs" />
+    <Compile Include="Core\Services\Chart\ChartTypes\ScatterChart.cs" />
+    <Compile Include="Core\Services\Chart\ChartTypes\SignalChart.cs" />
     <Compile Include="Core\Store.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -152,6 +217,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Changelog.md" />
+    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -209,4 +275,13 @@
     <Resource Include="Image\Icons\Back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\SkiaSharp.NativeAssets.macOS.2.88.7\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('packages\SkiaSharp.NativeAssets.macOS.2.88.7\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\SkiaSharp.NativeAssets.macOS.2.88.7\build\net462\SkiaSharp.NativeAssets.macOS.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SkiaSharp.NativeAssets.macOS.2.88.7\build\net462\SkiaSharp.NativeAssets.macOS.targets'))" />
+    <Error Condition="!Exists('packages\SkiaSharp.NativeAssets.Win32.2.88.7\build\net462\SkiaSharp.NativeAssets.Win32.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SkiaSharp.NativeAssets.Win32.2.88.7\build\net462\SkiaSharp.NativeAssets.Win32.targets'))" />
+  </Target>
+  <Import Project="packages\SkiaSharp.NativeAssets.Win32.2.88.7\build\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="Exists('packages\SkiaSharp.NativeAssets.Win32.2.88.7\build\net462\SkiaSharp.NativeAssets.Win32.targets')" />
 </Project>

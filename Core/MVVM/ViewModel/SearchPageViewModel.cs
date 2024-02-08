@@ -1,24 +1,49 @@
 ﻿using NewCryptoApp.Core.API.CoinGesko;
 using NewCryptoApp.Core.API.CoinGesko.Model;
-using System.Collections.ObjectModel;
 using System.Linq;
+using NewCryptoApp.Core.MVVM.View;
+
 
 namespace NewCryptoApp.Core.MVVM.ViewModel
 {
     class SearchPageViewModel: ViewModel
     {
         public Command FindCmd { get; }
+        public Command ToMoreCoins { get; }
+        public Command ToMoreExchenges { get; }
+        public Command ToMoreNft { get; }
 
         public SearchPageViewModel()
 		{
+            FindCoins = Store.GetOrNull<FindCoinsDTO[]>();
+            FindExchanges = Store.GetOrNull<FindExchangesDTO[]>();
+            FindNfts = Store.GetOrNull<FindNftDTO[]>();
+            Search = Store.GetOrNull<string>();
 			FindCmd = new Command(Find, (_) => search != "");
-		}
-		private async void Find(object obj)
+            ToMoreCoins = new Command(GoToMoreCoin);
+            ToMoreExchenges = new Command(GoToExchenges); 
+
+        }
+        private async void GoToExchenges(object obj)
+        {
+            Store.Register(obj as FindExchangesDTO);
+            await Navigate.GoToAsync(nameof(MoreInfoExchangesView));
+        }
+        private async void GoToMoreCoin(object obj)
+        {
+            Store.Register(obj as FindCoinsDTO);
+            await Navigate.GoToAsync(nameof(InfoPageView));
+        }
+        private async void Find(object obj)
 		{
             var findDto = await CoinGeskoAPI.FindCoins(search);
             FindCoins = findDto.Coins;
             FindExchanges = findDto.Exchanges; 
             FindNfts = findDto.Nfts;
+            Store.Register(findDto.Coins);
+            Store.Register(findDto.Exchanges);
+            Store.Register(findDto.Nfts);
+            Store.Register(search);
 
         }
 
