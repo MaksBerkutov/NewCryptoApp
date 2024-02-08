@@ -19,5 +19,14 @@ namespace NewCryptoApp.Core.API.CoinGesko
         {
             return await instance.StandartHandler<FindDTO>($"search?query={query}");
         }
+
+        public static async Task<MoreInfoCoins> GetMoreInfoCoin(string id)
+        {
+            return await instance.StandartHandler<MoreInfoCoins>($"coins/{id}?localization=false&tickers=true&market_data=false&community_data=false&developer_data=false&sparkline=false");
+        }
+        public static async Task<MoreInfoExchangesDTO> GetMoreInfoExchange(string id)
+        {
+            return await instance.StandartHandler<MoreInfoExchangesDTO>($"exchanges/{id}");
+        }
     }
 }

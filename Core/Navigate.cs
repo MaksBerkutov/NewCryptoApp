@@ -9,15 +9,11 @@ namespace NewCryptoApp.Core
 {
     public static class Navigate
     {
-        //public static object CurrentContent { get; set; }
         private readonly static Logger logger = new Logger(nameof(Navigate));
         private readonly static List<Type> RegisterPages = new List<Type>();
         public delegate void OpenPage(object content);
         public static event OpenPage OnOpenPage;
-        public static void RegisterFrame(object content)
-        {
-            //CurrentContent = content;
-        }
+
         public static string LasPage { get; private set; }
         public static void RegisterPage<T>() where T : Page
         {

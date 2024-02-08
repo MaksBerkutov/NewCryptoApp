@@ -9,11 +9,97 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InfoPageView">
-
     <Page.DataContext>
         <viewModels:InfoPageViewModel />
     </Page.DataContext>
     <Grid>
-       
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel  Orientation="Horizontal">
+                <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
+
+                    <StackPanel   HorizontalAlignment="Center">
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Id: "/>
+                                <Label Content="{Binding MoreInfo.Id}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Name: "/>
+                                <Label Content="{Binding MoreInfo.Name}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Hashing algorithm: "/>
+                                <Label Content="{Binding MoreInfo.HashingAlgorithm}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Country origin: "/>
+                                <Label Content="{Binding MoreInfo.CountryOrigin}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Gensesis date: "/>
+                                <Label Content="{Binding MoreInfo.Genesisdate}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Symbol: "/>
+                                <Label Content="{Binding MoreInfo.Symbol}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Web slug: "/>
+                                <Label Content="{Binding MoreInfo.WebSlug}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Block time in minutes: "/>
+                                <Label Content="{Binding MoreInfo.BlockTimeMinutes}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Last update: "/>
+                                <Label Content="{Binding MoreInfo.LastUpdate}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  Background="LightGreen" BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Sentiment votes up: "/>
+                                <Label Content="{Binding MoreInfo.SentimentVotesUp}"/>
+                                <Label Content="%"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="OrangeRed"  BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Sentiment votes down: "/>
+                                <Label Content="{Binding MoreInfo.SentimentVotesDown}"/>
+                                <Label Content="%"/>
+                            </StackPanel>
+                        </Border>
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding GoToTradePage}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label  FontSize="15" Content="Trade"/>
+                                <Image Source="/Image/Icons/Trade.png" />
+
+                            </StackPanel>
+                           
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+                <TextBox  TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxWidth="500"  Text="{Binding MoreInfo.Description.En}" IsReadOnly="True"/>
+
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

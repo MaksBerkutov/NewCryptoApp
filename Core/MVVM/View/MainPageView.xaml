@@ -34,10 +34,10 @@
                         <ColumnDefinition Width="7*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Лимит :"  HorizontalAlignment="Center" Width="52"/>
-                    <TextBox Grid.Column="1" Margin="5,0,5,0" Text="{Binding Limit,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource BottomAlignedTextBoxStyle}"/>
+                    <TextBox Grid.Column="1" Margin="5,0,5,0" Text="{Binding Limit,Mode=TwoWay}"  Style="{StaticResource BottomAlignedTextBoxStyle}"/>
                     <Button Grid.Column="2" BorderBrush="Transparent" Background="Transparent" Command="{Binding Update}">
                         <StackPanel>
-                            <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Refresh.png" Width="18" Height="20" />
+                            <Image Source="\Image\Icons\Refresh.png" Width="18" Height="20" />
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -46,7 +46,7 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToInfo}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Margin="10 ">Информация</Label>
-                        <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Info.png" Width="18" Height="20" />
+                        <Image Source="\Image\Icons\Info.png" Width="18" Height="20" />
                     </StackPanel>
                 </Button>
             </Border>
@@ -54,7 +54,7 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToGraphics}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Margin="10 ">График</Label>
-                        <Image Source="C:\Users\User\source\repos\NewCryptoApp\Image\Icons\Chart.png" Width="18" Height="20" />
+                        <Image Source="\Image\Icons\Chart.png" Width="18" Height="20" />
                     </StackPanel>
                 </Button>
             </Border>

@@ -40,8 +40,10 @@ namespace NewCryptoApp.Core.Lang
         {
 
             Application.Current.Resources.MergedDictionaries.Clear();
-            var resourceDictionary = new ResourceDictionary();
-            resourceDictionary.Source = new Uri($"Core/Lang/Resources.{SelectedLanguage}.xaml", UriKind.Relative);
+            var resourceDictionary = new ResourceDictionary()
+            {
+                Source = new Uri($"Core/Lang/Resources.{SelectedLanguage}.xaml", UriKind.Relative)
+            };
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
     }

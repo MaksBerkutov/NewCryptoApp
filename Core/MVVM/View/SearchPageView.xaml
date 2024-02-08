@@ -45,7 +45,7 @@
                             </Style>
                         </Button.Resources>
                         <StackPanel>
-                            <Image Source="..\..\..\Image\Icons\Search.png" Width="30" Height="30" />
+                            <Image Source="\Image\Icons\Search.png" Width="30" Height="30" />
                         </StackPanel>
                     </Button>
 
@@ -62,7 +62,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Coins" Margin=" 0,0,10,0"/>
-                        <Image Source="..\..\..\Image\Icons\Coin.png" Height="20"/>
+                        <Image Source="\Image\Icons\Coin.png" Height="20"/>
                     </StackPanel>
                 </TabItem.Header>
                 <ListBox HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" ItemsSource="{Binding FindCoins,Mode=TwoWay}" SelectedItem="{Binding SelectedCoin, Mode=TwoWay}">
@@ -125,7 +125,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Exchanges" Margin=" 0,0,10,0"/>
-                        <Image Source="..\..\..\Image\Icons\Exchange.png" Height="20"/>
+                        <Image Source="\Image\Icons\Exchange.png" Height="20"/>
                     </StackPanel>
                 </TabItem.Header>
                 <ListBox HorizontalContentAlignment="Stretch"  Grid.Row="1" Background="Transparent" ItemsSource="{Binding FindExchanges,Mode=TwoWay}" SelectedItem="{Binding SelectedExchanges, Mode=TwoWay}">
@@ -170,7 +170,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="NFTs" Margin=" 0,0,10,0"/>
-                        <Image Source="..\..\..\Image\Icons\Nft.png" Height="20"/>
+                        <Image Source="\Image\Icons\Nft.png" Height="20"/>
                     </StackPanel>
                 </TabItem.Header>
                 <ListBox HorizontalContentAlignment="Stretch" Grid.Row="1" Background="Transparent" ItemsSource="{Binding FindNfts,Mode=TwoWay}" SelectedItem="{Binding SelectedNft}">

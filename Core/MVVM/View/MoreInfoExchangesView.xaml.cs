@@ -1,6 +1,4 @@
-﻿using NewCryptoApp.Core.API.CoinGesko.Model;
-using NewCryptoApp.Core.MVVM.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +16,11 @@ using System.Windows.Shapes;
 namespace NewCryptoApp.Core.MVVM.View
 {
     /// <summary>
-    /// Логика взаимодействия для InfoPageView.xaml
+    /// Логика взаимодействия для MoreInfoExchangesView.xaml
     /// </summary>
-    public partial class InfoPageView : Page
+    public partial class MoreInfoExchangesView : Page
     {
-        public InfoPageView()
+        public MoreInfoExchangesView()
         {
             InitializeComponent();
         }

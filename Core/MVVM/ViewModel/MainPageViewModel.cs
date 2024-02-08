@@ -20,12 +20,14 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         {
             UpdateItems();
             Update = new Command(UpdateItems, (_) => limit > 0);
-            ToGraphics = new Command(GoToGraphics, (_) => selectedCoin != null);
-            ToInfo = new Command(GoToGraphics, (_) => selectedCoin != null);
+            ToGraphics = new Command(GoToInfo, (_) => selectedCoin != null);
+            ToInfo = new Command(GoToInfo, (_) => selectedCoin != null);
         }
-        public async void GoToGraphics(object obj = null)
+        public async void GoToInfo(object obj = null)
         {
-            await Navigate.GoToAsync(nameof(InfoPageView), SelectedCoin);
+            Store<CoinsDTO>.Clear();
+            Store<CoinsDTO>.Register(selectedCoin);
+            await Navigate.GoToAsync(nameof(InfoPageView));
         }
         public async void UpdateItems(object obj = null)
         {

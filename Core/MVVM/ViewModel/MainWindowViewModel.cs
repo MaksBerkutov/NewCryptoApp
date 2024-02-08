@@ -25,6 +25,8 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             Navigate.RegisterPage<MainPageView>();
             Navigate.RegisterPage<InfoPageView>();
             Navigate.RegisterPage<SearchPageView>();
+            Navigate.RegisterPage<MoreInfoExchangesView>();
+            Navigate.RegisterPage<TradePageView>();
             Navigate.OnOpenPage += Navigate_OnOpenPage;
 
             Navigate.GoTo(nameof(MainPageView));
