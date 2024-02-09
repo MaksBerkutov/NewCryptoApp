@@ -110,6 +110,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Core\MVVM\View\ConvertorPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Core\MVVM\View\InfoPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Core\MVVM\View\SearchPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\MVVM\View\SettingPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,6 +148,10 @@
     </Compile>
     <Compile Include="Core\API\APIException\ApiExtentions.cs" />
     <Compile Include="Core\API\BaseAPI.cs" />
+    <Compile Include="Core\API\CoinCap\CoinCapAPI.cs" />
+    <Compile Include="Core\API\CoinCap\Model\CandelsOHLcDTO.cs" />
+    <Compile Include="Core\API\CoinCap\Model\CoinDTO.cs" />
+    <Compile Include="Core\API\CoinCap\Model\ValuteDTO.cs" />
     <Compile Include="Core\API\CoinGesko\CoinGeskoAPI.cs" />
     <Compile Include="Core\API\CoinGesko\Model\ChartDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinsDTO.cs" />
@@ -157,6 +169,14 @@
     <Compile Include="Core\API\CryptoCompare\Model\ChartHistoryDTO.cs" />
     <Compile Include="Core\API\CryptoCompare\Model\ChartHistoryPointDTO.cs" />
     <Compile Include="Core\API\Respones.cs" />
+    <Compile Include="Core\MVVM\ViewModel\ConvertorPageViewModel.cs" />
+    <Compile Include="Core\MVVM\ViewModel\SettingPageViewModel.cs" />
+    <Compile Include="Core\MVVM\View\ConvertorPageView.xaml.cs">
+      <DependentUpon>ConvertorPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\MVVM\View\SettingPageView.xaml.cs">
+      <DependentUpon>SettingPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\Services\Chart\ChartTypes\CandlestickChart.cs" />
     <Compile Include="Core\Services\Chart\ChartService.cs" />
     <Compile Include="Core\Convert.cs" />
@@ -192,6 +212,7 @@
     <Compile Include="Core\Services\Chart\ChartTypes\OHLCChart.cs" />
     <Compile Include="Core\Services\Chart\ChartTypes\ScatterChart.cs" />
     <Compile Include="Core\Services\Chart\ChartTypes\SignalChart.cs" />
+    <Compile Include="Core\Services\ConvertValute\ConvertedValuteService.cs" />
     <Compile Include="Core\Store.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -273,6 +294,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Icons\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Easter_Egg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icons\Convert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\SkiaSharp.NativeAssets.macOS.2.88.7\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('packages\SkiaSharp.NativeAssets.macOS.2.88.7\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />

@@ -35,17 +35,54 @@
                     </StackPanel>
                 </Border>
                 <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    <TextBox Text="{Binding CountPoint, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Transparent" Background="Transparent"/>
+                </Border>
+                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
                     <ComboBox ItemsSource="{Binding ChartType}" SelectedItem="{Binding SelectedChartType}" />
                 </Border>
-
-
+                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    <StackPanel>
+                        <Label Content="Valute " HorizontalAlignment="Center"/>
+                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                            <ComboBox ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValutes}" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    <StackPanel>
+                        <RadioButton IsChecked="{Binding IsDay}" Content="Day Pair" GroupName="Chart"/>
+                        <RadioButton IsChecked="{Binding IsHour}" Content="Hour Pair" GroupName="Chart"/>
+                        <RadioButton IsChecked="{Binding IsMinute}" Content="Minutes Pair" GroupName="Chart"/>
+                    </StackPanel>
+                </Border>
+                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    <StackPanel>
+                        <Label  FontSize="15" Content="Show" HorizontalAlignment="Center"/>
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Volume}">
+                        <StackPanel Orientation="Horizontal">
+                            <Label  FontSize="15" Content="Volume"/>
+                            <Image Source="/Image/Icons/Refresh.png" />
+                        </StackPanel>
+                        </Button>
+                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Default}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label  FontSize="15" Content="Default"/>
+                                <Image Source="/Image/Icons/Refresh.png" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Update}">
+                    <StackPanel Orientation="Horizontal">
+                        <Label  FontSize="15" Content="Update"/>
+                        <Image Source="/Image/Icons/Refresh.png" />
+                    </StackPanel>
+                </Button>
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}">
                     <StackPanel Orientation="Horizontal">
                         <Label  FontSize="15" Content="Back"/>
                         <Image Source="/Image/Icons/Back.png" />
-
                     </StackPanel>
-
                 </Button>
 
             </StackPanel>

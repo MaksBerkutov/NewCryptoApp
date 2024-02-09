@@ -1,9 +1,12 @@
 ﻿using NewCryptoApp.Core.API.CryptoCompare.Model;
+using ScottPlot;
 using ScottPlot.WPF;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace NewCryptoApp.Core.Services
 {
@@ -38,6 +41,17 @@ namespace NewCryptoApp.Core.Services
             {
                 await RenderChart(Points, renderValue);
             }
+        }
+        public static async void RenderChartVolume(ChartHistoryPointDTO[] Points)
+        {
+            if (Points == null) throw new NullReferenceException(nameof(Points));
+            await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+            {
+                Chart.Plot.Clear();
+                Chart.Plot.Add.Bars(Points.Select(x => (double)x.VolumeFrom).ToArray()).Color = Colors.LightGray;
+                Chart.Plot.Axes.AutoScale();
+                Chart.Refresh();
+            });
         }
         public static async Task RenderChart(ChartHistoryPointDTO[] Points, IRenderChart Render)
         {

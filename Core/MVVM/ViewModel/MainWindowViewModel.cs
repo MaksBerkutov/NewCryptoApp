@@ -9,14 +9,13 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         public Command GoToFindPage { get; }
         public Command GoToHomePage { get; }
 
-        // Для того что бы убрать тупой копипаст кода.
         private Command CreateCommandNavigate(string PageName) => new Command(async (_) => await Navigate.GoToAsync(PageName), (_) => Navigate.LasPage != PageName); 
         public MainWindowViewModel()
 		{
             GoToHomePage = CreateCommandNavigate(nameof(MainPageView));
-            GoToSettingPage = CreateCommandNavigate(nameof(SearchPageView));
-            GoToConverterPage = CreateCommandNavigate(nameof(SearchPageView));
-            GoToFindPage = CreateCommandNavigate(nameof(SearchPageView));  
+            GoToSettingPage = CreateCommandNavigate(nameof(SettingPageView));
+            GoToFindPage = CreateCommandNavigate(nameof(SearchPageView));
+            GoToConverterPage = CreateCommandNavigate(nameof(ConvertorPageView));
             Navigate.OnOpenPage += Navigate_OnOpenPage;
 
             Navigate.GoTo(nameof(MainPageView));

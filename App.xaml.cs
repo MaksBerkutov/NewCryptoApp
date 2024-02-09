@@ -18,6 +18,8 @@ namespace NewCryptoApp
         public App()
         {
             Navigate.RegisterStaticPage<MainPageView>();
+            Navigate.RegisterStaticPage<SettingPageView>();
+            Navigate.RegisterStaticPage<ConvertorPageView>();
             Navigate.RegisterPage<InfoPageView>();
             Navigate.RegisterPage<SearchPageView>();
             Navigate.RegisterPage<ChartPageView>();

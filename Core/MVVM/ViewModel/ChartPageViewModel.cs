@@ -5,30 +5,42 @@ using NewCryptoApp.Core.API.CryptoCompare.Model;
 using NewCryptoApp.Core.Services;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace NewCryptoApp.Core.MVVM.ViewModel
 {
     public class ChartPageViewModel:ViewModel
     {
+        private readonly string coinId;
+
         private ChartHistoryDTO ChartDTO;
         public Command Back { get; }
-        private async void LoadData(string Id)
+        public Command Update { get; }
+        public Command Default { get; }
+        public Command Volume { get; }
+        private delegate Task<ChartHistoryDTO> GetPoints(string Id, string Valute,int Limit);
+        private GetPoints CurrentGetPoint = CryptoCompareAPI.GetChartPointHour;
+        private async void LoadData(object obj = null)
         {
-            ChartDTO = await CryptoCompareAPI.GetChartPoint(Id);
+           
+
+            ChartDTO = await CurrentGetPoint(coinId, selectedValutes, CountPoint);
 
             From = ConvertDateTime.ConvertUnixToDateTime(ChartDTO.TimeFrom);
             To = ConvertDateTime.ConvertUnixToDateTime(ChartDTO.TimeTo);
             SelectedChartType = ChartType.First();
         }
+       
         public ChartPageViewModel()
         {
+            SelectedValutes = Valutes.First();
             ChartType = ChartService.GetTypesChart;
-            Back = new Command(async (_) =>
-            {
-                await Navigate.Back();
-            });
-            var coin = Store.Get<CoinsDTO>();
-            ChartService.OnLoaded += () => LoadData(coin.Symbol);
+            Update = new Command(LoadData);
+            Default = new Command((_) => ChartService.RenderChart(ChartDTO.ChartPoint, SelectedChartType));
+            Volume = new Command((_) => ChartService.RenderChartVolume(ChartDTO.ChartPoint));
+            Back = new Command(async (_) => await Navigate.Back());
+            coinId = Store.Get<CoinsDTO>().Symbol;
+            ChartService.OnLoaded += () => LoadData();
         }
 
         private string[] chartType;
@@ -65,5 +77,58 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             set => SetProperty(ref to, value);
         }
 
+        private int countPoint = 750;
+        public int CountPoint
+        {
+            get => countPoint;
+            set => SetProperty(ref countPoint, value);
+        }
+
+        private bool isMinute = false;
+        public bool IsMinute
+        {
+            get => isMinute;
+            set
+            {
+                SetProperty(ref isMinute, value);
+                if (value)  CurrentGetPoint = CryptoCompareAPI.GetChartPointMinute;
+            }
+        }
+
+        private bool isDay = false;
+        public bool IsDay
+        {
+            get => isDay;
+            set
+            {
+                SetProperty(ref isDay, value);
+                if(value) CurrentGetPoint = CryptoCompareAPI.GetChartPointDay;
+            }
+        }
+
+        private bool isHour = true;
+        public bool IsHour
+        {
+            get => isHour;
+            set 
+            {
+                SetProperty(ref isHour, value);
+                if (value) CurrentGetPoint = CryptoCompareAPI.GetChartPointHour;
+            }
+        }
+
+        private string[] valutes = new string[] { "USD", "UAH", "RUB", "ETH", "BTC" };
+        public string[] Valutes
+        {
+            get => valutes;
+            set => SetProperty(ref valutes, value);
+        }
+
+        private string selectedValutes;
+        public string SelectedValutes
+        {
+            get => selectedValutes;
+            set => SetProperty(ref selectedValutes, value);
+        }
     }
 }
