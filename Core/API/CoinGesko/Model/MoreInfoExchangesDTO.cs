@@ -6,6 +6,7 @@ namespace NewCryptoApp.Core.API.CoinGesko.Model
     {
         [JsonProperty(PropertyName = "name")] 
         public string Name { get; set; }
+
         [JsonProperty(PropertyName = "image")] 
         public string Image { get; set; }
 

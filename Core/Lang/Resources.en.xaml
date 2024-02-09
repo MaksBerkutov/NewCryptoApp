@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--Only MainWindow.xaml-->
+    <sys:String x:Key="Home">Home</sys:String>
+    <sys:String x:Key="Find">Find</sys:String>
+    <sys:String x:Key="Convertor">Convertor</sys:String>
+    <sys:String x:Key="Settings">Settings</sys:String>
+    
+    <!--Only MainPageView.xaml-->
+    <sys:String x:Key="Limit">Limit</sys:String>
+    <sys:String x:Key="Info">Inforamtion</sys:String>
+    <sys:String x:Key="Chart">Chart</sys:String>
+
+    <!--Only TradePageView.xaml-->
+    <sys:String x:Key="Timestamp">Timestamp</sys:String>
+    <sys:String x:Key="Base">Base</sys:String>
+    <sys:String x:Key="Target">Target</sys:String>
+    <sys:String x:Key="LastFetch">Last fetch</sys:String>
+    <sys:String x:Key="LastTraded">Last traded</sys:String>
+    <sys:String x:Key="Last">Last</sys:String>
+    <sys:String x:Key="Market">Market</sys:String>
+    <sys:String x:Key="ConvertedLast">Converted last</sys:String>
+    <sys:String x:Key="ClearFilter">Clear filter</sys:String>
+    <sys:String x:Key="ConvertedVolume">Converted volume</sys:String>
+    <sys:String x:Key="BidAskSpreadPercentage">Bid ask spread</sys:String>
+
+    <!--Only SettingsPageView.xaml-->
+    <sys:String x:Key="Lang">Language</sys:String>
+    <sys:String x:Key="Theme">Theme</sys:String>
+
+    <!--Only SearchPageView.xaml-->
+    <sys:String x:Key="MarketCupRank">Market Cup Rank</sys:String>
+    <sys:String x:Key="Exchanges">Exchanges</sys:String>
+    <sys:String x:Key="MarketType">Market type</sys:String>
+    <sys:String x:Key="NFT">NFT</sys:String>
+
+    <!--Only MoreNftView.xaml-->
+    <sys:String x:Key="ContractAddress">Contract Adress</sys:String>
+    <sys:String x:Key="NativeCurrency">Native currency</sys:String>
+    <sys:String x:Key="NativeCurrencySymbol">Native symbol</sys:String>
+    <sys:String x:Key="Links">Links</sys:String>
+    <sys:String x:Key="ExternalLinks">External links</sys:String>
+
+    <!--Only MoreInfoExchangesView.xaml-->
+    <sys:String x:Key="Country">Country</sys:String>
+    <sys:String x:Key="YearEstablished">Year established</sys:String>
+    <sys:String x:Key="Centralized">Centralized</sys:String>
+    <sys:String x:Key="TrustScoreRank">Trust score rank</sys:String>
+
+    <!--Only ChartPageView.xaml-->
+    <sys:String x:Key="CountPoint">Count point</sys:String>
+    <sys:String x:Key="Valute">Valute</sys:String>
+    <sys:String x:Key="DayPair">Day pair</sys:String>
+    <sys:String x:Key="HourPair">Hour pair</sys:String>
+    <sys:String x:Key="MinutePair">Minute Pair</sys:String>
+    <sys:String x:Key="Show">Show</sys:String>
+    <sys:String x:Key="Default">Default</sys:String>
+    <sys:String x:Key="Update">Update</sys:String>
+    
+    <!--Only ConvertPageView.xaml-->
+    <sys:String x:Key="Price">Price</sys:String>
+    <sys:String x:Key="Convert">Convert</sys:String>
+    <sys:String x:Key="IGet">I get</sys:String>
+    <sys:String x:Key="IHave">I have</sys:String>
+
+    <!--Only InfoPageView.xaml-->
+
+    <sys:String x:Key="HashingAlgorithm">Hashing algorithm</sys:String>
+    <sys:String x:Key="CountryOrigin">Country origin</sys:String>
+    <sys:String x:Key="Genesisdate">Gensesis date</sys:String>
+    <sys:String x:Key="BlockTimeMinutes">Block time in minutes</sys:String>
+    <sys:String x:Key="LastUpdate">Last update</sys:String>
+    <sys:String x:Key="SentimentVotesUp">Sentiment votes up</sys:String>
+    <sys:String x:Key="SentimentVotesDown">Sentiment votes down</sys:String>
+    <sys:String x:Key="WebSlug">Web slug</sys:String>
+
+
+    <!--All-->
+    <sys:String x:Key="Id">Id</sys:String>
+    <sys:String x:Key="Coins">Coins</sys:String>
+    <sys:String x:Key="Symbol">Symbol</sys:String>
+    <sys:String x:Key="Name">Name</sys:String>
+    <sys:String x:Key="Back">Back</sys:String>
+    <sys:String x:Key="MoreDetails">More details</sys:String>
+    <sys:String x:Key="TrustScore">Trust score</sys:String>
+    <sys:String x:Key="Volume">Volume</sys:String>
+    <sys:String x:Key="ToTrade">To trade</sys:String>
+
+    <sys:String x:Key="From">From</sys:String>
+    <sys:String x:Key="To">To</sys:String>
+</ResourceDictionary>

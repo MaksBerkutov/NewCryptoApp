@@ -33,7 +33,7 @@
                         <ColumnDefinition Width="17*" />
                         <ColumnDefinition Width="7*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Лимит :"  HorizontalAlignment="Center" Width="52"/>
+                    <Label Content="{DynamicResource Limit}"  HorizontalAlignment="Center" Width="52"/>
                     <TextBox Grid.Column="1" Margin="5,0,5,0" Text="{Binding Limit,Mode=TwoWay}"  Style="{StaticResource BottomAlignedTextBoxStyle}"/>
                     <Button Grid.Column="2" BorderBrush="Transparent" Background="Transparent" Command="{Binding Update}">
                         <StackPanel>
@@ -45,7 +45,7 @@
             <Border Width="200px" Background="LightGray" Height="50px"  HorizontalAlignment="Center" BorderThickness="1,1,1,1" CornerRadius="7">
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToInfo}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label Margin="10 ">Информация</Label>
+                        <Label Margin="10 " Content="{DynamicResource Info}"/>
                         <Image Source="\Image\Icons\Info.png" Width="18" Height="20" />
                     </StackPanel>
                 </Button>
@@ -53,7 +53,7 @@
             <Border Width="200px" Background="LightGray" Height="50px"  HorizontalAlignment="Right" Margin="50 0 50 0"  BorderThickness="1,1,1,1" CornerRadius="7">
                 <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToGraphics}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label Margin="10 ">График</Label>
+                        <Label Margin="10 " Content="{DynamicResource Chart}"/>
                         <Image Source="\Image\Icons\Chart.png" Width="18" Height="20" />
                     </StackPanel>
                 </Button>
@@ -71,13 +71,12 @@
                             
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal"  >
-                                    <TextBlock Text="{Binding Id}" Margin=" 5 5 5 5"/>
                                     <TextBlock Text="{Binding Name}" HorizontalAlignment="Left" Margin=" 5 5 5 5"/>
-                                    <TextBlock Text="{Binding Symbol}" HorizontalAlignment="Left" Margin=" 5 5 5 5"/>
+                                    
                                     <TextBlock Text="{Binding LastUpdate}"  HorizontalAlignment="Right" Margin=" 5 5 5 5"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"  >
-                                    <TextBlock Text="DESCRIPTIONS"  HorizontalAlignment="Right"  Margin=" 5 5 5 5" />
+                                    <TextBlock Text="{Binding Id}" Margin=" 5 5 5 5"/>
                                     <TextBlock Text="{Binding Symbol}" HorizontalAlignment="Left"  Margin=" 5 5 5 5"/>
                                 </StackPanel>
                                 

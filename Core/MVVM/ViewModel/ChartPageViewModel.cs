@@ -81,7 +81,11 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
         public int CountPoint
         {
             get => countPoint;
-            set => SetProperty(ref countPoint, value);
+            set 
+            {
+                if (value >= 5 && value <= 2000) 
+                    SetProperty(ref countPoint, value);
+            }
         }
 
         private bool isMinute = false;

@@ -29,7 +29,7 @@
             <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToHomePage}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label FontSize="16" Content="Домой"/>
+                        <Label FontSize="16" Content="{DynamicResource Home}"/>
                         <Image Source="/Image/Icons/Home.png" Width="30"/>
                     </StackPanel>
                 </Button.Content>
@@ -37,7 +37,7 @@
             <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToFindPage}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label FontSize="16" Content="Поиск"/>
+                        <Label FontSize="16" Content="{DynamicResource Find}"/>
                         <Image Source="/Image/Icons/Search.png" Width="30"/>
                     </StackPanel>
                 </Button.Content>
@@ -45,7 +45,7 @@
             <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToConverterPage}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label FontSize="16" Content="Конвертор"/>
+                        <Label FontSize="16" Content="{DynamicResource Convertor}"/>
                         <Image Source="/Image/Icons/Convertor.png" Width="30"/>
                     </StackPanel>
                 </Button.Content>
@@ -53,7 +53,7 @@
             <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToSettingPage}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label FontSize="16" Content="Настройки"/>
+                        <Label FontSize="16" Content="{DynamicResource Settings}"/>
                         <Image Source="/Image/Icons/Settings.png" Width="30"/>
                     </StackPanel>
                 </Button.Content>

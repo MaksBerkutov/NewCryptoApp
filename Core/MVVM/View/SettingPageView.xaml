@@ -20,17 +20,17 @@
             <StackPanel   HorizontalAlignment="Center">
                 <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
                     <StackPanel >
-                        <Label Content="Lang" HorizontalAlignment="Center"/>
+                        <Label Content="{DynamicResource Lang}" HorizontalAlignment="Center"/>
                         <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <ComboBox MinWidth="100" />
+                                <ComboBox MinWidth="100" ItemsSource="{Binding AllLang}" SelectedItem="{Binding SelectedLang}" />
                             </StackPanel>
                         </Border>
                     </StackPanel>
                 </Border>
                 <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
                     <StackPanel >
-                        <Label Content="Theme" HorizontalAlignment="Center"/>
+                        <Label Content="{DynamicResource Theme}" HorizontalAlignment="Center"/>
                         <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
                                 <ComboBox MinWidth="100" />

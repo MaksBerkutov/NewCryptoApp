@@ -33,8 +33,8 @@
 
                     <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="5">
                     <StackPanel   HorizontalAlignment="Center">
-                        <Label Content="From" HorizontalAlignment="Center"/>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
+                            <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
+                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                                 <ListBox Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoinFrom}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
@@ -54,7 +54,7 @@
 
                     <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
                     <StackPanel   HorizontalAlignment="Center">
-                        <Label Content="To" HorizontalAlignment="Center"/>
+                        <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
                             <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                                 <ListBox Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValuteTo}">
                                     <ListBox.ItemTemplate>
@@ -87,30 +87,30 @@
                 <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0">
-                            <Label Content="I have" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource IHave}" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBox Text="{Binding CountCoinToVal}" Margin="10" MinWidth="100"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinFrom.Symbol}"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Margin="0">
-                            <Label Content="I get" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource IGet}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding ResultCoinToVal}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedValuteTo.Symbol}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Margin="0">
-                            <Label Content="Price" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource Price}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedValuteTo.Symbol}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedValuteTo.PriceUSD}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                            
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Margin="0">
-                            <Label Content="Price" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource Price}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinFrom.Symbol}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinFrom.PriceUSD}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                         <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
                             <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Convert}">
                                 <StackPanel Orientation="Horizontal">
-                                    <Label  FontSize="15" Content="Convert"/>
+                                    <Label  FontSize="15" Content="{DynamicResource Convert}"/>
                                     <Image Source="/Image/Icons/Convert.png" />
 
                                 </StackPanel>
@@ -122,34 +122,34 @@
                     
             </StackPanel>
             <Border BorderThickness="5 5 0 5" BorderBrush="Blue" Grid.Row="1"/>
-            <StackPanel Grid.Row="1" Background="Transparent"  Margin="5 5 -5 5">
+            <StackPanel Grid.Row="1" Background="Transparent"  Margin="5 5 -5 5" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0">
-                            <Label Content="I have" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource IHave}" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBox Text="{Binding CountValToCoin}" Margin="10" MinWidth="100"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedValuteFrom.Symbol}"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Margin="0">
-                            <Label Content="I get" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource IGet}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding ResultValToCoin}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinTo.Symbol}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Margin="0">
-                            <Label Content="Price" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource Price}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedValuteFrom.Symbol}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedValuteFrom.PriceUSD}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"  Margin="0">
-                            <Label Content="Price" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource Price}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinTo.Symbol}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinTo.PriceUSD}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                         <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
                             <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Convert}">
                                 <StackPanel Orientation="Horizontal">
-                                    <Label  FontSize="15" Content="Convert"/>
+                                    <Label  FontSize="15" Content="{DynamicResource Convert}"/>
                                     <Image Source="/Image/Icons/Convert.png" />
                                 </StackPanel>
                             </Button>
@@ -175,7 +175,7 @@
 
                     <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
                         <StackPanel   HorizontalAlignment="Center">
-                            <Label Content="To" HorizontalAlignment="Center"/>
+                            <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
                             <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                                 <ListBox Background="Transparent" BorderBrush="Transparent"  ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValuteFrom}">
                                     <ListBox.ItemTemplate>
@@ -199,7 +199,7 @@
 
                     <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
                         <StackPanel   HorizontalAlignment="Center">
-                            <Label Content="To" HorizontalAlignment="Center"/>
+                            <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
                             <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                                 <ListBox Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoinTo}">
                                     <ListBox.ItemTemplate>

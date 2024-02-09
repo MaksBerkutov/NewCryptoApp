@@ -13,13 +13,14 @@ namespace NewCryptoApp.Core.Services
         public static string ConvertValuteToCoin(ValuteDTO From,CoinDTO To, double Count)
         {
             if (To.PriceUSD == null) return "";
-            var curse = GetCurse(From.PriceUSD, To.PriceUSD.Value);
+            var curse = GetCurse(Math.Round(From.PriceUSD,3), Math.Round(To.PriceUSD.Value,3));
             return (Count*curse).ToString();
         }
         public static string ConvertCoinToValute(CoinDTO From, ValuteDTO To, double Count)
         {
+           
             if (From.PriceUSD == null) return "";
-            var curse = GetCurse(From.PriceUSD.Value,To.PriceUSD);
+            var curse = GetCurse(Math.Round(From.PriceUSD.Value,3), Math.Round(To.PriceUSD, 3));
             return (Count * curse).ToString();
         }
     }

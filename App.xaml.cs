@@ -1,12 +1,8 @@
 ﻿using NewCryptoApp.Core.MVVM.View;
 using NewCryptoApp.Core;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+using NewCryptoApp.Core.Lang;
 using System.Windows;
+
 
 namespace NewCryptoApp
 {
@@ -17,12 +13,14 @@ namespace NewCryptoApp
     {
         public App()
         {
+            LanguageManager.CurrentCode = "en";
             Navigate.RegisterStaticPage<MainPageView>();
             Navigate.RegisterStaticPage<SettingPageView>();
             Navigate.RegisterStaticPage<ConvertorPageView>();
             Navigate.RegisterPage<InfoPageView>();
             Navigate.RegisterPage<SearchPageView>();
             Navigate.RegisterPage<ChartPageView>();
+            Navigate.RegisterPage<MoreNftView>();
             Navigate.RegisterPage<MoreInfoExchangesView>();
             Navigate.RegisterPage<TradePageView>();
         }

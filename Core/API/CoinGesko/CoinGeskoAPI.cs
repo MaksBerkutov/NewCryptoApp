@@ -30,6 +30,11 @@ namespace NewCryptoApp.Core.API.CoinGesko
         {
             return await instance.StandartHandler<MoreInfoExchangesDTO>($"exchanges/{ExchangeId}");
         }
+        public static async Task<MoreInfoNftDTO> GetMoreInfoNft(string NftId)
+        {
+            return await instance.StandartHandler<MoreInfoNftDTO>($"nfts/{NftId}");
+        }
+        
 
         public static async Task<ChartDTO> GetChartPoint(string CoinId,string Valute = "usd",long Minimum = 0, long Maximum = 0)
         {

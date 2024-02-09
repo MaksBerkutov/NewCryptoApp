@@ -11,38 +11,31 @@ namespace NewCryptoApp.Core.Lang
         public string Name { get; set; }
         public override string ToString() => Name;
     }
-    public class LanguageManager : INotifyPropertyChanged
+    public class LanguageManager
     {
-        public static readonly ObservableCollection<CultureLang> Lang = new ObservableCollection<CultureLang>()
+        public static readonly CultureLang[] Lang = new CultureLang[]
         {
             new CultureLang(){Name = "Українська", Code ="ua"},
             new CultureLang(){Name = "English", Code ="en"},
+            new CultureLang(){Name = "русский", Code ="ru"},
         };
-        private string selectedLanguage;
-
-        public string SelectedLanguage
+        private static string currentCode;
+        public static string CurrentCode
         {
-            get { return selectedLanguage; }
+            get => currentCode;
             set
             {
-                if (selectedLanguage != value)
-                {
-                    selectedLanguage = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedLanguage)));
-                    UpdateLanguageResources();
-                }
+                currentCode = value;
+                UpdateLanguageResources();
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void UpdateLanguageResources()
+        private static void UpdateLanguageResources()
         {
 
             Application.Current.Resources.MergedDictionaries.Clear();
             var resourceDictionary = new ResourceDictionary()
             {
-                Source = new Uri($"Core/Lang/Resources.{SelectedLanguage}.xaml", UriKind.Relative)
+                Source = new Uri($"Core/Lang/Resources.{currentCode}.xaml", UriKind.Relative)
             };
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }

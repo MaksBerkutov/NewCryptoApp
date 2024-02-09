@@ -21,68 +21,68 @@
                        
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Id: "/>
+                                <Label Content="{DynamicResource Id}"/>
                                 <Label Content="{Binding MoreInfo.Id}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Name: "/>
+                                <Label Content="{DynamicResource Name}"/>
                                 <Label Content="{Binding MoreInfo.Name}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Hashing algorithm: "/>
+                                <Label Content="{DynamicResource HashingAlgorithm}"/>
                                 <Label Content="{Binding MoreInfo.HashingAlgorithm}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Country origin: "/>
+                                <Label Content="{DynamicResource CountryOrigin}"/>
                                 <Label Content="{Binding MoreInfo.CountryOrigin}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Gensesis date: "/>
+                                <Label Content="{DynamicResource Genesisdate}"/>
                                 <Label Content="{Binding MoreInfo.Genesisdate}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Symbol: "/>
+                                <Label Content="{DynamicResource Symbol}"/>
                                 <Label Content="{Binding MoreInfo.Symbol}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Web slug: "/>
+                                <Label Content="{DynamicResource WebSlug}"/>
                                 <Label Content="{Binding MoreInfo.WebSlug}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Block time in minutes: "/>
+                                <Label Content="{DynamicResource BlockTimeMinutes}"/>
                                 <Label Content="{Binding MoreInfo.BlockTimeMinutes}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Last update: "/>
+                                <Label Content="{DynamicResource LastUpdate}"/>
                                 <Label Content="{Binding MoreInfo.LastUpdate}"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  Background="LightGreen" BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Sentiment votes up: "/>
+                                <Label Content="{DynamicResource SentimentVotesUp}"/>
                                 <Label Content="{Binding MoreInfo.SentimentVotesUp}"/>
                                 <Label Content="%"/>
                             </StackPanel>
                         </Border>
                         <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="OrangeRed"  BorderThickness="2" CornerRadius="10">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Sentiment votes down: "/>
+                                <Label Content="{DynamicResource SentimentVotesDown}"/>
                                 <Label Content="{Binding MoreInfo.SentimentVotesDown}"/>
                                 <Label Content="%"/>
                             </StackPanel>
@@ -90,25 +90,21 @@
                         
                         <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding GoToTradePage}">
                             <StackPanel Orientation="Horizontal">
-                                <Label  FontSize="15" Content="Trade"/>
+                                <Label  FontSize="15" Content="{DynamicResource ToTrade}"/>
                                 <Image Source="/Image/Icons/Trade.png" />
-
                             </StackPanel>
                            
                         </Button>
                         <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}">
                             <StackPanel Orientation="Horizontal">
-                                <Label  FontSize="15" Content="Back"/>
+                                <Label  FontSize="15" Content="{DynamicResource Back}"/>
                                 <Image Source="/Image/Icons/Back.png" />
-
                             </StackPanel>
-
                         </Button>
-
                     </StackPanel>
                 </Border>
+                
                 <TextBox  TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxWidth="500"  Text="{Binding MoreInfo.Description.En}" IsReadOnly="True"/>
-
             </StackPanel>
         </ScrollViewer>
     </Grid>

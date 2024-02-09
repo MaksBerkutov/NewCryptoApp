@@ -106,6 +106,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Core\Lang\Resources.en.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Lang\Resources.ru.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Lang\Resources.ua.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Core\MVVM\View\ChartPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Core\MVVM\View\MoreInfoExchangesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\MVVM\View\MoreNftView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,14 +181,19 @@
     <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\MoreInfoCoinsDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\CoinMoreInfo\Auxiliary\TickerDTO.cs" />
     <Compile Include="Core\API\CoinGesko\Model\MoreInfoExchangesDTO.cs" />
+    <Compile Include="Core\API\CoinGesko\Model\MoreInfoNftDTO.cs" />
     <Compile Include="Core\API\CryptoCompare\CryptoCompareAPI.cs" />
     <Compile Include="Core\API\CryptoCompare\Model\ChartHistoryDTO.cs" />
     <Compile Include="Core\API\CryptoCompare\Model\ChartHistoryPointDTO.cs" />
     <Compile Include="Core\API\Respones.cs" />
     <Compile Include="Core\MVVM\ViewModel\ConvertorPageViewModel.cs" />
+    <Compile Include="Core\MVVM\ViewModel\MoreNftViewModel.cs" />
     <Compile Include="Core\MVVM\ViewModel\SettingPageViewModel.cs" />
     <Compile Include="Core\MVVM\View\ConvertorPageView.xaml.cs">
       <DependentUpon>ConvertorPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\MVVM\View\MoreNftView.xaml.cs">
+      <DependentUpon>MoreNftView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\MVVM\View\SettingPageView.xaml.cs">
       <DependentUpon>SettingPageView.xaml</DependentUpon>

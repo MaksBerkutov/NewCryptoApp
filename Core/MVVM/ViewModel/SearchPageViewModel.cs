@@ -1,6 +1,5 @@
 ﻿using NewCryptoApp.Core.API.CoinGesko;
 using NewCryptoApp.Core.API.CoinGesko.Model;
-using System.Linq;
 using NewCryptoApp.Core.MVVM.View;
 
 
@@ -21,13 +20,19 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             Search = Store.GetOrNull<string>();
 			FindCmd = new Command(Find, (_) => search != "");
             ToMoreCoins = new Command(GoToMoreCoin);
-            ToMoreExchenges = new Command(GoToExchenges); 
+            ToMoreExchenges = new Command(GoToExchenges);
+            ToMoreNft = new Command(GoToMoreNft); 
 
         }
         private async void GoToExchenges(object obj)
         {
             Store.Register(obj as FindExchangesDTO);
             await Navigate.GoToAsync(nameof(MoreInfoExchangesView));
+        }
+        private async void GoToMoreNft(object obj)
+        {
+            Store.Register(obj as FindNftDTO);
+            await Navigate.GoToAsync(nameof(MoreNftView));
         }
         private async void GoToMoreCoin(object obj)
         {

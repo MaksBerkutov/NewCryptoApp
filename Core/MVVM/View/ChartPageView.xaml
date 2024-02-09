@@ -19,74 +19,82 @@
             <ColumnDefinition Width="27*"/>
         </Grid.ColumnDefinitions>
         <ScottPlot:WpfPlot x:Name="WpfPlot1"/>
-        <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"   Grid.Column="1">
+        <ScrollViewer VerticalScrollBarVisibility="Auto"  Grid.Column="1" HorizontalAlignment="Stretch">
+            <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  >
 
-            <StackPanel   HorizontalAlignment="Center">
-                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                    <StackPanel>
-                        <Label Content="From " HorizontalAlignment="Center"/>
-                        <Label Content="{Binding From}"/>
-                    </StackPanel>
-                </Border>
-                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                    <StackPanel>
-                        <Label Content="To " HorizontalAlignment="Center"/>
-                        <Label Content="{Binding To}"/>
-                    </StackPanel>
-                </Border>
-                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                    <TextBox Text="{Binding CountPoint, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Transparent" Background="Transparent"/>
-                </Border>
-                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                    <ComboBox ItemsSource="{Binding ChartType}" SelectedItem="{Binding SelectedChartType}" />
-                </Border>
-                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                    <StackPanel>
-                        <Label Content="Valute " HorizontalAlignment="Center"/>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                            <ComboBox ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValutes}" />
-                        </Border>
-                    </StackPanel>
-                </Border>
-                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                    <StackPanel>
-                        <RadioButton IsChecked="{Binding IsDay}" Content="Day Pair" GroupName="Chart"/>
-                        <RadioButton IsChecked="{Binding IsHour}" Content="Hour Pair" GroupName="Chart"/>
-                        <RadioButton IsChecked="{Binding IsMinute}" Content="Minutes Pair" GroupName="Chart"/>
-                    </StackPanel>
-                </Border>
-                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                    <StackPanel>
-                        <Label  FontSize="15" Content="Show" HorizontalAlignment="Center"/>
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Volume}">
+                <StackPanel  >
+                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                        <StackPanel>
+                            <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
+                            <Label Content="{Binding From}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                        <StackPanel>
+                            <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
+                            <Label Content="{Binding To}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                        <StackPanel>
+                            <Label Content="{DynamicResource CountPoint}" HorizontalAlignment="Center"/>
+                            <TextBox Text="{Binding CountPoint, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Transparent" Background="LightGray"/>
+
+                        </StackPanel>
+                    </Border>
+                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                        <ComboBox ItemsSource="{Binding ChartType}" SelectedItem="{Binding SelectedChartType}" />
+                    </Border>
+                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                        <StackPanel>
+                            <Label Content="{DynamicResource Valute}" HorizontalAlignment="Center"/>
+                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                                <ComboBox ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValutes}" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                        <StackPanel>
+                            <RadioButton IsChecked="{Binding IsDay}" Content="{DynamicResource DayPair}" GroupName="Chart"/>
+                            <RadioButton IsChecked="{Binding IsHour}" Content="{DynamicResource HourPair}" GroupName="Chart"/>
+                            <RadioButton IsChecked="{Binding IsMinute}" Content="{DynamicResource MinutePair}" GroupName="Chart"/>
+                        </StackPanel>
+                    </Border>
+                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                        <StackPanel>
+                            <Label  FontSize="15" Content="{DynamicResource Show}" HorizontalAlignment="Center"/>
+                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Volume}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label  FontSize="15" Content="{DynamicResource Volume}"/>
+                                    <Image Source="/Image/Icons/Refresh.png" />
+                                </StackPanel>
+                            </Button>
+                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Default}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label  FontSize="15" Content="{DynamicResource Default}"/>
+                                    <Image Source="/Image/Icons/Refresh.png" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Update}">
                         <StackPanel Orientation="Horizontal">
-                            <Label  FontSize="15" Content="Volume"/>
+                            <Label  FontSize="15" Content="{DynamicResource Update}"/>
                             <Image Source="/Image/Icons/Refresh.png" />
                         </StackPanel>
-                        </Button>
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Default}">
-                            <StackPanel Orientation="Horizontal">
-                                <Label  FontSize="15" Content="Default"/>
-                                <Image Source="/Image/Icons/Refresh.png" />
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </Border>
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Update}">
-                    <StackPanel Orientation="Horizontal">
-                        <Label  FontSize="15" Content="Update"/>
-                        <Image Source="/Image/Icons/Refresh.png" />
-                    </StackPanel>
-                </Button>
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}">
-                    <StackPanel Orientation="Horizontal">
-                        <Label  FontSize="15" Content="Back"/>
-                        <Image Source="/Image/Icons/Back.png" />
-                    </StackPanel>
-                </Button>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}">
+                        <StackPanel Orientation="Horizontal">
+                            <Label  FontSize="15" Content="{DynamicResource Back}"/>
+                            <Image Source="/Image/Icons/Back.png" />
+                        </StackPanel>
+                    </Button>
 
-            </StackPanel>
-        </Border>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+
+           
         
     </Grid>
 </Page>
