@@ -38,6 +38,11 @@ namespace NewCryptoApp.Core.Lang
                 Source = new Uri($"Core/Lang/Resources.{currentCode}.xaml", UriKind.Relative)
             };
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+            var theme = new ResourceDictionary()
+            {
+                Source = new Uri($"Core/Theme/theme.dark.xaml", UriKind.Relative)
+            };
+            Application.Current.Resources.MergedDictionaries.Add(theme);
         }
     }
 }

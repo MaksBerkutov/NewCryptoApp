@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         <Grid Background="Gray" >
             <Border Width="200px" Background="LightGray" Height="50px"  HorizontalAlignment="Left" Margin="50 0 0 0"  BorderThickness="1,1,1,1" CornerRadius="7">
-                <Grid VerticalAlignment="Center">
+                <Grid VerticalAlignment="Center"  Background="Transparent">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="9*" />
@@ -35,23 +35,23 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="{DynamicResource Limit}"  HorizontalAlignment="Center" Width="52"/>
                     <TextBox Grid.Column="1" Margin="5,0,5,0" Text="{Binding Limit,Mode=TwoWay}"  Style="{StaticResource BottomAlignedTextBoxStyle}"/>
-                    <Button Grid.Column="2" BorderBrush="Transparent" Background="Transparent" Command="{Binding Update}">
+                    <Button Grid.Column="2" BorderBrush="Transparent"  Command="{Binding Update}">
                         <StackPanel>
                             <Image Source="\Image\Icons\Refresh.png" Width="18" Height="20" />
                         </StackPanel>
                     </Button>
                 </Grid>
             </Border>
-            <Border Width="200px" Background="LightGray" Height="50px"  HorizontalAlignment="Center" BorderThickness="1,1,1,1" CornerRadius="7">
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToInfo}">
+            <Border Width="200px" Background="Gray" Height="50px"  HorizontalAlignment="Center" BorderThickness="1,1,1,1" CornerRadius="7">
+                <Button BorderBrush="Transparent" Command="{Binding ToInfo}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Margin="10 " Content="{DynamicResource Info}"/>
                         <Image Source="\Image\Icons\Info.png" Width="18" Height="20" />
                     </StackPanel>
                 </Button>
             </Border>
-            <Border Width="200px" Background="LightGray" Height="50px"  HorizontalAlignment="Right" Margin="50 0 50 0"  BorderThickness="1,1,1,1" CornerRadius="7">
-                <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ToGraphics}">
+            <Border Width="200px" Background="Gray" Height="50px"  HorizontalAlignment="Right" Margin="50 0 50 0"  BorderThickness="1,1,1,1" CornerRadius="7">
+                <Button BorderBrush="Transparent" Command="{Binding ToGraphics}">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Margin="10 " Content="{DynamicResource Chart}"/>
                         <Image Source="\Image\Icons\Chart.png" Width="18" Height="20" />
@@ -65,7 +65,6 @@
             
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
                         <StackPanel    Orientation="Horizontal">
                             <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
                             
@@ -85,7 +84,6 @@
                            
                            
                         </StackPanel>
-                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

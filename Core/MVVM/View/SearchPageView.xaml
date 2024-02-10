@@ -25,7 +25,7 @@
         
         <StackPanel Background="Gray" >
             <Border Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page},Converter={StaticResource Converts},ConverterParameter='0,5'}"  Background="LightGray" Height="50px"   HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="10" BorderThickness="1,1,1,1" CornerRadius="15">
-                <Grid VerticalAlignment="Stretch">
+                <Grid VerticalAlignment="Stretch" Background="Transparent">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="155*"/>
@@ -68,7 +68,6 @@
                 <ListBox HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" ItemsSource="{Binding FindCoins,Mode=TwoWay}" SelectedItem="{Binding SelectedCoin, Mode=TwoWay}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
                                 <StackPanel  Orientation="Horizontal" >
                                     <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
 
@@ -120,7 +119,6 @@
 
                                     </WrapPanel>
                                 </StackPanel>
-                            </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

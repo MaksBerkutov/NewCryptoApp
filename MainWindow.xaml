@@ -8,14 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
     <Window.Resources>
-        <Style TargetType="Button" x:Key="MenuItemButton">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Margin" Value="20"/>
-            <!-- Другие свойства стиля, которые вы хотите задать -->
-        </Style>
+        
     </Window.Resources>
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
@@ -25,7 +18,7 @@
             <RowDefinition Height="31*"/>
             <RowDefinition Height="453*"/>
         </Grid.RowDefinitions>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="76">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="76" >
             <Button Style="{StaticResource MenuItemButton}" Command="{Binding GoToHomePage}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
