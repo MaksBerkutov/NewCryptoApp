@@ -4,12 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewCryptoApp.Core.MVVM.View"
+      xmlns:UI="clr-namespace:NewCryptoApp.Core.UI"
+      xmlns:Template="clr-namespace:NewCryptoApp.Core.UI.Template"
       xmlns:convert="clr-namespace:NewCryptoApp.Core"
       xmlns:viewModels="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SearchPageView"
-      >
+      Title="SearchPageView">
     <Page.Resources>
         <convert:MyConverter x:Key="Converts"/>
     </Page.Resources>
@@ -17,219 +18,62 @@
         <viewModels:SearchPageViewModel/>
     </Page.DataContext>
     <Grid>
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="37*"/>
         </Grid.RowDefinitions>
         
         <StackPanel Background="Gray" >
-            <Border Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page},Converter={StaticResource Converts},ConverterParameter='0,5'}"  Background="LightGray" Height="50px"   HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="10" BorderThickness="1,1,1,1" CornerRadius="15">
-                <Grid VerticalAlignment="Stretch" Background="Transparent">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="155*"/>
-                        <ColumnDefinition Width="43*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox  Text="{Binding Search, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Padding="10 0 0 0 " FontSize="20">
-                        <TextBox.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="15 0 0 15 "/>
-                            </Style>
-                        </TextBox.Resources>
-                    </TextBox>
-                    <Button Grid.Column="1" BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="Transparent" Command="{Binding FindCmd}">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="0 15 15 0 "/>
-                            </Style>
-                        </Button.Resources>
-                        <StackPanel>
-                            <Image Source="\Image\Icons\Search.png" Width="30" Height="30" />
-                        </StackPanel>
-                    </Button>
-
-
-
-
-
-                </Grid>
-            </Border>
+            <UI:SearchBarComponent SearchCommand="{Binding FindCmd}" TextSearch="{Binding Search, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <TabControl Grid.Row="1"  Background="Transparent"  >
-            <TabItem  Background="LightCyan" >
+        <TabControl Grid.Row="1"  Background="Transparent">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{DynamicResource Coins}" Margin=" 0,0,10,0"/>
                         <Image Source="\Image\Icons\Coin.png" Height="20"/>
                     </StackPanel>
                 </TabItem.Header>
-                <ListBox HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" ItemsSource="{Binding FindCoins,Mode=TwoWay}" SelectedItem="{Binding SelectedCoin, Mode=TwoWay}">
-                    <ListBox.ItemTemplate>
+                <UI:ListBoxComponent ItemsSoure="{Binding FindCoins,Mode=TwoWay}" SelectedItems="{Binding SelectedCoin, Mode=TwoWay}">
+                    <UI:ListBoxComponent.AdditionalContent>
                         <DataTemplate>
-                                <StackPanel  Orientation="Horizontal" >
-                                    <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
-
-                                    <WrapPanel  MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page},Converter={StaticResource Converts},ConverterParameter='0,8'}" >
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Id}"/>
-                                                <TextBlock Text="{Binding Id}" Margin=" 5 5 5 5"/>
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Name}"/>
-                                                <TextBlock Text="{Binding Name}" Margin=" 5 5 5 5"/>
-
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Symbol}"/>
-                                                <TextBlock Text="{Binding Symbol}" Margin=" 5 5 5 5"/>
-
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource MarketCupRank}"/>
-                                                <TextBlock Text="{Binding MarketCupRank}" Margin=" 5 5 5 5"/>
-
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Symbol}"/>
-                                                <TextBlock Text="{Binding Symbol}" Margin=" 5 5 5 5"/>
-
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.ToMoreCoins, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" >
-                                                <Button.Content>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Label Content="{DynamicResource MoreDetails}"/>
-                                                        <Image Source="/Image/Icons/Info.png" />
-                                                    </StackPanel>
-                                                </Button.Content>
-                                            </Button>
-                                        </Border>
-
-                                    </WrapPanel>
-                                </StackPanel>
+                            <Template:TemplateFindCoinsDTO CommandToMore="{Binding DataContext.ToMoreCoins, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"/>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-
-
+                    </UI:ListBoxComponent.AdditionalContent>
+                </UI:ListBoxComponent>
             </TabItem>
 
-            <TabItem  Background="LightCyan" >
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{DynamicResource Exchanges}" Margin=" 0,0,10,0"/>
                         <Image Source="\Image\Icons\Exchange.png" Height="20"/>
                     </StackPanel>
                 </TabItem.Header>
-                <ListBox HorizontalContentAlignment="Stretch"  Grid.Row="1" Background="Transparent" ItemsSource="{Binding FindExchanges,Mode=TwoWay}" SelectedItem="{Binding SelectedExchanges, Mode=TwoWay}">
-                    <ListBox.ItemTemplate>
+                <UI:ListBoxComponent ItemsSoure="{Binding FindExchanges,Mode=TwoWay}" SelectedItems="{Binding SelectedExchanges, Mode=TwoWay}">
+                    <UI:ListBoxComponent.AdditionalContent>
                         <DataTemplate>
-                            <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                <StackPanel  Orientation="Horizontal" >
-                                    <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
-
-                                    <WrapPanel  MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page},Converter={StaticResource Converts}, ConverterParameter='0,8'}" >
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Id}"/>
-                                                <TextBlock Text="{Binding Id}" Margin=" 5 5 5 5"/>
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Name}"/>
-                                                <TextBlock Text="{Binding Name}" Margin=" 5 5 5 5"/>
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource MarketType}"/>
-                                                <TextBlock Text="{Binding MarketType}" Margin=" 5 5 5 5"/>
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.ToMoreExchenges, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" >
-                                                <Button.Content>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Label Content="{DynamicResource MoreDetails}"/>
-                                                        <Image Source="/Image/Icons/Info.png" />
-                                                    </StackPanel>
-                                                </Button.Content>
-                                            </Button>
-                                        </Border>
-                                    </WrapPanel>
-                                </StackPanel>
-                            </Border>
+                            <Template:TemplateFindExchangesDTO CommandToMore="{Binding DataContext.ToMoreExchenges, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"/>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-
-
+                    </UI:ListBoxComponent.AdditionalContent>
+                </UI:ListBoxComponent>
             </TabItem>
-            <TabItem Background="LightCyan" >
+            
+            <TabItem >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{DynamicResource NFT}" Margin=" 0,0,10,0"/>
                         <Image Source="\Image\Icons\Nft.png" Height="20"/>
                     </StackPanel>
                 </TabItem.Header>
-                <ListBox HorizontalContentAlignment="Stretch" Grid.Row="1" Background="Transparent" ItemsSource="{Binding FindNfts,Mode=TwoWay}" SelectedItem="{Binding SelectedNft}">
-                    <ListBox.ItemTemplate>
+                <UI:ListBoxComponent ItemsSoure="{Binding FindNfts,Mode=TwoWay}" SelectedItems="{Binding SelectedNft, Mode=TwoWay}">
+                    <UI:ListBoxComponent.AdditionalContent>
                         <DataTemplate>
-
-                            <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                <StackPanel  Orientation="Horizontal" >
-                                    <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
-                                    <WrapPanel  MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource Converts},ConverterParameter='0,8'}" >
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Id}"/>
-                                                <TextBlock Text="{Binding Id}" Margin=" 5 5 5 5"/>
-
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Name}"/>
-                                                <TextBlock Text="{Binding Name}" Margin=" 5 5 5 5"/>
-                                            </StackPanel>
-                                        </Border>
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <StackPanel Orientation="Horizontal" >
-                                                <Label Content="{DynamicResource Symbol}"/>
-                                                <TextBlock Text="{Binding Symbol}" Margin=" 5 5 5 5"/>
-                                            </StackPanel>
-                                        </Border>
-
-                                        <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.ToMoreNft, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" >
-                                                <Button.Content>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Label Content="{DynamicResource MoreDetails}"/>
-                                                        <Image Source="/Image/Icons/Info.png" />
-                                                    </StackPanel>
-                                                </Button.Content>
-                                            </Button>
-                                        </Border>
-
-                                    </WrapPanel>
-                                </StackPanel>
-                            </Border>
+                            <Template:TemplateFindNftDTO CommandToMore="{Binding DataContext.ToMoreNft, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"/>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                    </UI:ListBoxComponent.AdditionalContent>
+                </UI:ListBoxComponent>
             </TabItem>
         </TabControl>
     </Grid>

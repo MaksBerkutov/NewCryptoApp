@@ -9,7 +9,7 @@
         <Setter Property="Margin" Value="20"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
+                <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1" CornerRadius="15">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
@@ -24,13 +24,13 @@
                 <Setter Property="Background" Value="#2c2f33"/>
             </Trigger>
         </Style.Triggers>
-        
     </Style>
 
-    <!--OtherStyle-->
+    <!--Global Style-->
+    
     <!--Label-->
     <Style TargetType="Label">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
     
     <!--Grid-->
@@ -62,28 +62,21 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--MainColor-->
-                        <Trigger Property="UIElement.IsMouseOver" Value="True">
-                            <Setter Property="Panel.Background" TargetName="Bd" 
-                       Value="LightSteelBlue"/>
-                           
-                            <Setter Property="Border.BorderBrush" TargetName="Bd">
-                                <Setter.Value>
-                                    <SolidColorBrush>Green</SolidColorBrush> <!--BorderColor-->
-                                </Setter.Value>
-                            </Setter>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Red"/>
+                            <Setter Property="BorderBrush" Value="Green"/>
                         </Trigger>
-                        <Trigger Property="UIElement.IsEnabled" Value="False">
-                            <Setter Property="TextElement.Foreground" TargetName="Bd">
-                                <Setter.Value>
-                                    <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
-                                </Setter.Value>
-                            </Setter>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightSteelBlue"/>
+                            <Setter Property="BorderBrush" Value="Green"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+    <!--TabItem-->
+
     <Style TargetType="TabItem">
         <Setter Property="Template">
             <Setter.Value>
@@ -130,5 +123,20 @@
                 <Setter Property="Background" Value="#99aab5"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+    
+    <!--Scroll bar-->
+    <Style TargetType="ScrollBar" x:Key="x">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollBar">
+                    <Border CornerRadius="1" Background="Green" BorderBrush="Red" BorderThickness="0"  Height="100"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

@@ -15,10 +15,10 @@ namespace NewCryptoApp.Core.API.CoinGesko.Model
         public MarketDTO Market { get; set; }
 
         [JsonProperty(PropertyName = "last")]
-        public double Last { get; set; }
+        public double? Last { get; set; }
 
         [JsonProperty(PropertyName = "volume")]
-        public double Volume { get; set; }
+        public double? Volume { get; set; }
 
         [JsonProperty(PropertyName = "converted_last")]
         public ConvertedDTO ConvertedLast { get; set; }
@@ -30,16 +30,16 @@ namespace NewCryptoApp.Core.API.CoinGesko.Model
         public string TrustScore { get; set; }
 
         [JsonProperty(PropertyName = "bid_ask_spread_percentage")]
-        public double BidAskSpreadPercentage { get; set; }
+        public double? BidAskSpreadPercentage { get; set; }
 
         [JsonProperty(PropertyName = "timestamp")]
-        public DateTime Timestamp { get; set; }
+        public DateTime? Timestamp { get; set; }
 
         [JsonProperty(PropertyName = "last_fetch_at")]
-        public DateTime LastFetch { get; set; }
+        public DateTime? LastFetch { get; set; }
 
         [JsonProperty(PropertyName = "last_traded_at")]
-        public DateTime LastTraded { get; set; }
+        public DateTime? LastTraded { get; set; }
 
         [JsonProperty(PropertyName = "trade_url")]
         public string TradeUrl { get; set; }

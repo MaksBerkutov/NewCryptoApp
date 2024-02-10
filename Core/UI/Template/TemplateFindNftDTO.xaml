@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="NewCryptoApp.Core.UI.Template.TemplateFindNftDTO"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NewCryptoApp.Core.UI.Template"
+             xmlns:convert="clr-namespace:NewCryptoApp.Core"
+             Name="templateFindNftDTO"
+             xmlns:UI="clr-namespace:NewCryptoApp.Core.UI"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <convert:MyConverter x:Key="Converts"/>
+    </UserControl.Resources>
+    <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
+        <StackPanel  Orientation="Horizontal" >
+            <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
+            <WrapPanel  MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource Converts},ConverterParameter='0,8'}" >
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource Id}" Value="{Binding Id}"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource Name}" Value="{Binding Name}"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource Symbol}" Value="{Binding Symbol}"/>
+                <UI:ShowButtonComponent Header="{DynamicResource MoreDetails}" Image="/Image/Icons/Info.png" 
+                    Command="{Binding CommandToMore, ElementName=templateFindNftDTO}" CommandParam="{Binding}"/>
+            </WrapPanel>
+        </StackPanel>
+    </Border>
+
+</UserControl>

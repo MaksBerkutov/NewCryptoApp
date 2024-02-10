@@ -11,7 +11,7 @@ namespace NewCryptoApp.Core.API.CoinCap.Model
         public string Symbol { get; set; }
 
         [JsonProperty(PropertyName = "rateUsd")]
-        public double PriceUSD { get; set; }
+        public double? PriceUSD { get; set; }
 
         [JsonProperty(PropertyName = "currencySymbol")]
         public string UNIXLogo { get; set; }

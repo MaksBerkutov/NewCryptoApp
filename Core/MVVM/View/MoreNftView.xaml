@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewCryptoApp.Core.MVVM.View"
+      xmlns:UI="clr-namespace:NewCryptoApp.Core.UI"
       xmlns:viewModel="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -18,90 +19,53 @@
                 <StackPanel   HorizontalAlignment="Center">
                     <Image Source="{Binding Image}" Width="100" />
 
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource Id}" Value="{Binding InfoNft.Id}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource Name}" Value="{Binding InfoNft.Name}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource ContractAddress}" Value="{Binding InfoNft.ContractAddress}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource NativeCurrency}" Value="{Binding InfoNft.NativeCurrency}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource NativeCurrencySymbol}" Value="{Binding InfoNft.NativeCurrencySymbol}"/>
+                    <UI:ShowInnerContentComponent>
+                        <UI:ShowInnerContentComponent>
+                            <StackPanel >
+                                <Label Content="{DynamicResource Links}" HorizontalAlignment="Center"/>
+                                <ListBox HorizontalContentAlignment="Center" ItemsSource="{Binding InfoNft.Links}" Background="Transparent" BorderBrush="Transparent">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
+                                                <Button  Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.OpenExternalLink, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Value}">
+                                                    <Button.Content>
+                                                        <Label  Content="{Binding Key}"/>
+                                                    </Button.Content>
+                                                </Button>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </UI:ShowInnerContentComponent>
+                    </UI:ShowInnerContentComponent>
+                    <UI:ShowInnerContentComponent>
+                        <UI:ShowInnerContentComponent>
+                            <StackPanel >
+                                <Label Content="{Binding ExternalLinks}" HorizontalAlignment="Center"/>
+                                <ListBox HorizontalContentAlignment="Center"  ItemsSource="{Binding InfoNft.ExternUrl}" Background="Transparent" BorderBrush="Transparent">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
+                                                <Button  Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.OpenExternalLink, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Link}">
+                                                    <Button.Content>
+                                                        <Label  Content="{Binding Name}"/>
+                                                    </Button.Content>
+                                                </Button>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
 
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource Id}"/>
-                            <Label Content="{Binding InfoNft.Id}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource Name}"/>
-                            <Label Content="{Binding InfoNft.Name}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource Symbol}"/>
-                            <Label Content="{Binding InfoNft.Symbol}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                        <StackPanel>
-                            <Label Content="{DynamicResource ContractAddress}"/>
-                            <Label Content="{Binding InfoNft.ContractAddress}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource NativeCurrency}"/>
-                            <Label Content="{Binding InfoNft.NativeCurrency}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource NativeCurrencySymbol}"/>
-                            <Label Content="{Binding InfoNft.NativeCurrencySymbol}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
-                        <StackPanel >
-                            <Label Content="{DynamicResource Links}" HorizontalAlignment="Center"/>
-                            <ListBox HorizontalContentAlignment="Center" ItemsSource="{Binding InfoNft.Links}" Background="Transparent" BorderBrush="Transparent">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                            <Button  Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.OpenExternalLink, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Value}">
-                                                <Button.Content>
-                                                    <Label  Content="{Binding Key}"/>
-                                                </Button.Content>
-                                            </Button>
-                                        </Border>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
-                        <StackPanel >
-                            <Label Content="{Binding ExternalLinks}" HorizontalAlignment="Center"/>
-                            <ListBox HorizontalContentAlignment="Center"  ItemsSource="{Binding InfoNft.ExternUrl}" Background="Transparent" BorderBrush="Transparent">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                            <Button  Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.OpenExternalLink, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Link}">
-                                                <Button.Content>
-                                                    <Label  Content="{Binding Name}"/>
-                                                </Button.Content>
-                                            </Button>
-                                        </Border>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                        </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding  Back}">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label  Content="{DynamicResource Back}"/>
-                                    <Image Source="/Image/Icons/Back.png" />
-                                </StackPanel>
-
-                            </Button.Content>
-                        </Button>
-                    </Border>
+                        </UI:ShowInnerContentComponent>
+                    </UI:ShowInnerContentComponent>
+                    <UI:BigButtonComponent Header="{DynamicResource Back}" Image="/Image/Icons/Back.png" Command="{Binding  Back}"/>
                 </StackPanel>
             </Border>
         </ScrollViewer>

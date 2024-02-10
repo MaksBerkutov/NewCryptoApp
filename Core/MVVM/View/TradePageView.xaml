@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewCryptoApp.Core.MVVM.View"
+      xmlns:UI="clr-namespace:NewCryptoApp.Core.UI"
+      xmlns:Template="clr-namespace:NewCryptoApp.Core.UI.Template"
       xmlns:viewModels="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -16,31 +18,85 @@
             <ColumnDefinition Width="9*"/>
             <ColumnDefinition Width="31*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Background="Transparent" HorizontalContentAlignment="Stretch" ItemsSource="{Binding FilterTickers}" SelectedItem="{Binding SelectedTicker}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border   Margin="2" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-                        <StackPanel  HorizontalAlignment="Center"  >
-                            <Label Content="{Binding Market.Name}" HorizontalAlignment="Center"  />
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                                <Label Content="{Binding Base}" />
-                                <Label Content="to" />
-                                <Label Content="{Binding Target}" />
-                            </StackPanel>
 
-                        </StackPanel>
-                    </Border>
+        <UI:ListBoxComponent ItemsSoure="{Binding FilterTickers,Mode=TwoWay}" SelectedItems="{Binding SelectedTicker,Mode=TwoWay}">
+            <UI:ListBoxComponent.AdditionalContent>
+                <DataTemplate>
+                    <Template:TemplateTradeVariation MarketName="{Binding Market.Name}"/>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </UI:ListBoxComponent.AdditionalContent>
+        </UI:ListBoxComponent>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="97*"/>
                 <ColumnDefinition Width="27*"/>
             </Grid.ColumnDefinitions>
-            <Grid  Grid.Column="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Border    BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
+                    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                        <StackPanel>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource Timestamp}" Value="{Binding SelectedTicker.Timestamp}"/>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource Base}" Value="{Binding SelectedTicker.Base}"/>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource Target}" Value="{Binding SelectedTicker.Target}"/>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource LastFetch}" Value="{Binding SelectedTicker.LastFetch}"/>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource LastTraded}" Value="{Binding SelectedTicker.LastTraded}"/>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource Last}" Value="{Binding SelectedTicker.Last}"/>
 
-                <StackPanel Background="AliceBlue" Margin="0" Orientation="Vertical" >
+                            <StackPanel>
+                                <UI:ShowPropertyCompnonet PropName="{DynamicResource Last}" Value="{Binding SelectedTicker.Last}"/>
+                                <UI:ShowInnerContentComponent>
+                                    <UI:ShowInnerContentComponent.AdditionalContent>
+                                        <StackPanel>
+                                            <Label Content="{DynamicResource ConvertedLast}" HorizontalAlignment="Center"/>
+                                            <StackPanel >
+                                                <UI:ShowPropertyCompnonet PropName="BTC: " Value="{Binding SelectedTicker.ConvertedLast.BTC}"/>
+                                                <UI:ShowPropertyCompnonet PropName="ETH: " Value="{Binding SelectedTicker.ConvertedLast.ETH}"/>
+                                                <UI:ShowPropertyCompnonet PropName="USD: " Value="{Binding SelectedTicker.ConvertedLast.USD}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </UI:ShowInnerContentComponent.AdditionalContent>
+                                </UI:ShowInnerContentComponent>
+
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource TrustScore}" Value="{Binding SelectedTicker.TrustScore}"/>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource BidAskSpreadPercentage}" Value="{Binding SelectedTicker.BidAskSpreadPercentage}"/>
+                            <UI:ShowPropertyCompnonet PropName="{DynamicResource Volume}" Value="{Binding SelectedTicker.Volume}"/>
+
+                            <UI:ShowInnerContentComponent>
+                                <UI:ShowInnerContentComponent.AdditionalContent>
+                                    <StackPanel >
+                                        <Label Content="{DynamicResource ConvertedVolume}" HorizontalAlignment="Center"/>
+                                        <StackPanel >
+                                            <UI:ShowPropertyCompnonet PropName="BTC: " Value="{Binding SelectedTicker.ConvertedVolume.BTC}"/>
+                                            <UI:ShowPropertyCompnonet PropName="ETH: " Value="{Binding SelectedTicker.ConvertedVolume.ETH}"/>
+                                            <UI:ShowPropertyCompnonet PropName="USD: " Value="{Binding SelectedTicker.ConvertedVolume.USD}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </UI:ShowInnerContentComponent.AdditionalContent>
+                            </UI:ShowInnerContentComponent>
+
+                            <UI:ShowInnerContentComponent>
+                                <UI:ShowInnerContentComponent.AdditionalContent>
+                                    <StackPanel >
+                                        <Label Content="{DynamicResource Market}" HorizontalAlignment="Center"/>
+                                        <StackPanel >
+                                            <UI:ShowPropertyCompnonet PropName="{DynamicResource Id}" Value="{Binding SelectedTicker.Market.Id}"/>
+                                            <UI:ShowPropertyCompnonet PropName="{DynamicResource Name}" Value="{Binding SelectedTicker.Market.Name}"/>
+                                            <UI:ShowButtonComponent Header="{DynamicResource MoreDetails}" Image="/Image/Icons/Info.png" Command="{Binding GoToMoreInfoExch}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </UI:ShowInnerContentComponent.AdditionalContent>
+                            </UI:ShowInnerContentComponent>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+
+            <Grid  Grid.Column="1">
+                <StackPanel Background="Transparent" Margin="0" Orientation="Vertical" >
 
                     <Border    BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="10">
                         <StackPanel Orientation="Horizontal" Margin="10 0 10 0" VerticalAlignment="Center">
@@ -54,203 +110,11 @@
                             <ComboBox ItemsSource="{Binding TargetCoin}" SelectedItem="{Binding SelectedTargetCoin,UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </Border>
-                    <Border    BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="10">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding ClearFilter}" Padding="0">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="{DynamicResource ClearFilter}"/>
-                                    <Image Source="/Image/Icons/ClearFilter.png" Height="25" />
-
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-                    </Border>
-                    <Border    BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="10">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding GoToTrade}" Padding="0">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="{DynamicResource ToTrade}"/>
-                                    <Image Source="/Image/Icons/Trade.png" Height="25" />
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-                    </Border>
-
-                    <Border    BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="10">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}" Padding="0">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="{DynamicResource Back}"/>
-                                    <Image Source="/Image/Icons/Back.png" Height="25" />
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-                    </Border>
-
+                    <UI:ShowButtonComponent Header="{DynamicResource ClearFilter}" Image="/Image/Icons/ClearFilter.png" Command="{Binding ClearFilter}"/>
+                    <UI:ShowButtonComponent Header="{DynamicResource ToTrade}" Image="/Image/Icons/Trade.png" Command="{Binding GoToTrade}"/>
+                    <UI:ShowButtonComponent Header="{DynamicResource Back}" Image="/Image/Icons/Back.png" Command="{Binding Back}"/>
                 </StackPanel>
             </Grid>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0">
-                <Border    BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
-
-                    <StackPanel  HorizontalAlignment="Center">
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource Timestamp}"/>
-                                        <Label Content="{Binding SelectedTicker.Timestamp}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource Base}"/>
-                                        <Label Content="{Binding SelectedTicker.Base}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource Target}"/>
-                                        <Label Content="{Binding SelectedTicker.Target}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource LastFetch}"/>
-                                        <Label Content="{Binding SelectedTicker.LastFetch}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource LastTraded}"/>
-                                        <Label Content="{Binding SelectedTicker.LastTraded}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource Last}"/>
-                                        <Label Content="{Binding SelectedTicker.Last}"/>
-                                    </StackPanel>
-                                </Border>
-
-                                <StackPanel>
-                                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Label Content="{DynamicResource Last}"/>
-                                            <Label Content="{Binding SelectedTicker.Last}"/>
-                                        </StackPanel>
-                                    </Border>
-                                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
-                                        <StackPanel >
-                                            <Label Content="{DynamicResource ConvertedLast}" HorizontalAlignment="Center"/>
-                                            <StackPanel >
-                                                <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Label Content="BTC:"/>
-                                                        <Label Content="{Binding SelectedTicker.ConvertedLast.BTC}"/>
-                                                    </StackPanel>
-                                                </Border>
-                                                <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Label Content="ETH:"/>
-                                                        <Label Content="{Binding SelectedTicker.ConvertedLast.ETH}"/>
-                                                    </StackPanel>
-                                                </Border>
-                                                <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Label Content="USD:"/>
-                                                        <Label Content="{Binding SelectedTicker.ConvertedLast.USD}"/>
-                                                    </StackPanel>
-                                                </Border>
-
-                                            </StackPanel>
-
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-                            </StackPanel>
-
-                            <StackPanel>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource TrustScore}"/>
-                                        <Label Content="{Binding SelectedTicker.TrustScore}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource BidAskSpreadPercentage}"/>
-                                        <Label Content="{Binding SelectedTicker.BidAskSpreadPercentage}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{DynamicResource Volume}"/>
-                                        <Label Content="{Binding SelectedTicker.Volume}"/>
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
-                                    <StackPanel >
-                                        <Label Content="{DynamicResource ConvertedVolume}" HorizontalAlignment="Center"/>
-                                        <StackPanel >
-                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Label Content="BTC:"/>
-                                                    <Label Content="{Binding SelectedTicker.ConvertedVolume.BTC}"/>
-                                                </StackPanel>
-                                            </Border>
-                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Label Content="ETH:"/>
-                                                    <Label Content="{Binding SelectedTicker.ConvertedVolume.ETH}"/>
-                                                </StackPanel>
-                                            </Border>
-                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Label Content="USD:"/>
-                                                    <Label Content="{Binding SelectedTicker.ConvertedVolume.USD}"/>
-                                                </StackPanel>
-                                            </Border>
-
-                                        </StackPanel>
-
-                                    </StackPanel>
-                                </Border>
-                                <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
-                                    <StackPanel >
-                                        <Label Content="{DynamicResource Market}" HorizontalAlignment="Center"/>
-                                        <StackPanel >
-                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Label Content="{DynamicResource Id}"/>
-                                                    <Label Content="{Binding SelectedTicker.Market.Id}"/>
-                                                </StackPanel>
-                                            </Border>
-
-                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Label Content="{DynamicResource Name}"/>
-                                                    <Label Content="{Binding SelectedTicker.Market.Name}"/>
-                                                </StackPanel>
-                                            </Border>
-                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                <Button Padding="0" Margin="0" Background="Transparent" BorderBrush="Transparent" Command="{Binding GoToMoreInfoExch}">
-                                                    <Button.Content>
-                                                        <StackPanel Orientation="Horizontal" >
-                                                            <Label Content="{DynamicResource MoreDetails}"/>
-                                                            <Image Source="/Image/Icons/Info.png" />
-                                                        </StackPanel>
-                                                    </Button.Content>
-                                                </Button>
-                                            </Border>
-                                        </StackPanel>
-
-                                    </StackPanel>
-                                </Border>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>
