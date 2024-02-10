@@ -12,10 +12,13 @@
     <Page.DataContext>
         <viewModel:MoreNftViewModel/>
     </Page.DataContext>
-    <StackPanel Orientation="Horizontal">
-        <ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="5">
-            <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
-
+    <ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="5">
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="294*"/>
+            </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource InnerBorderThemeTwo}"  Margin="10">
                 <StackPanel   HorizontalAlignment="Center">
                     <Image Source="{Binding Image}" Width="100" />
 
@@ -31,13 +34,11 @@
                                 <ListBox HorizontalContentAlignment="Center" ItemsSource="{Binding InfoNft.Links}" Background="Transparent" BorderBrush="Transparent">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Border  Margin=" 5 5 5 5" BorderBrush="#f0b979" BorderThickness="2" CornerRadius="10">
-                                                <Button  Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.OpenExternalLink, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Value}">
-                                                    <Button.Content>
-                                                        <Label  Content="{Binding Key}"/>
-                                                    </Button.Content>
-                                                </Button>
-                                            </Border>
+                                            <Button Padding="5" Background="Transparent" BorderBrush="Transparent" Command="{Binding DataContext.OpenExternalLink, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Value}">
+                                                <Button.Content>
+                                                    <Label  Content="{Binding Key}"/>
+                                                </Button.Content>
+                                            </Button>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -47,7 +48,7 @@
                     <UI:ShowInnerContentComponent>
                         <UI:ShowInnerContentComponent>
                             <StackPanel >
-                                <Label Content="{Binding ExternalLinks}" HorizontalAlignment="Center"/>
+                                <Label Content="{DynamicResource ExternalLinks}" HorizontalAlignment="Center"/>
                                 <ListBox HorizontalContentAlignment="Center"  ItemsSource="{Binding InfoNft.ExternUrl}" Background="Transparent" BorderBrush="Transparent">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
@@ -68,8 +69,10 @@
                     <UI:BigButtonComponent Header="{DynamicResource Back}" Image="/Image/Icons/Back.png" Command="{Binding  Back}"/>
                 </StackPanel>
             </Border>
-        </ScrollViewer>
-          
-        <TextBox  TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxWidth="380" Text="{Binding InfoNft.Description}" IsReadOnly="True"/>
-    </StackPanel>
+            <TextBox Grid.Column="1" TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxWidth="380" Text="{Binding InfoNft.Description}" IsReadOnly="True"/>
+
+        </Grid>
+
+    </ScrollViewer>
+
 </Page>

@@ -22,10 +22,8 @@
             <RowDefinition Height="8*"/>
             <RowDefinition Height="37*"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Background="Gray" >
-            <UI:SearchBarComponent SearchCommand="{Binding FindCmd}" TextSearch="{Binding Search, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-        </StackPanel>
+
+        <UI:SearchBarComponent SearchCommand="{Binding FindCmd}" TextSearch="{Binding Search, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
         <TabControl Grid.Row="1"  Background="Transparent">
             <TabItem>

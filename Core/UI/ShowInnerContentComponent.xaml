@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NewCryptoApp.Core.UI"
              Name="showInnerContentComponent"
              mc:Ignorable="d">
-    <Border  Margin="5" BorderBrush="Bisque" Background="#fffdd0" BorderThickness="2" CornerRadius="10" >
+    <Border  Style="{StaticResource InnerBorderThemeTwo}" CornerRadius="10" >
         <ContentPresenter Content="{Binding AdditionalContent, ElementName=showInnerContentComponent}" />
     </Border>
 

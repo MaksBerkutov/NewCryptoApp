@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:NewCryptoApp.Core.UI"
              Name="showButtonComponent"
              mc:Ignorable="d">
-    <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-        <Button  
+    <Border   Margin="5" BorderBrush="#1B1B1B" BorderThickness="2" CornerRadius="15">
+        <Button  Padding="0"
                 Command="{Binding Command,ElementName=showButtonComponent}" 
                 CommandParameter="{Binding CommandParam,ElementName=showButtonComponent}" >
             <Button.Content>

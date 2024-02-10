@@ -18,10 +18,18 @@
                     <ColumnDefinition Width="155*"/>
                     <ColumnDefinition Width="43*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox  Text="{Binding TextSearch, ElementName=searchBarComponent}" VerticalContentAlignment="Center" Padding="10 0 0 0 " FontSize="20">
+                <TextBox   Foreground="Black" Background="White" Text="{Binding TextSearch, ElementName=searchBarComponent}" VerticalContentAlignment="Center" Padding="10 0 0 0 " FontSize="20">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="15 0 0 15 "/>
+                            <Setter Property="BorderThickness" Value="0 "/>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>

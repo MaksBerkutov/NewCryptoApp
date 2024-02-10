@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewCryptoApp.Core.MVVM.View"
       xmlns:viewModel="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
+      xmlns:UI="clr-namespace:NewCryptoApp.Core.UI"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ConvertorPageView">
@@ -22,57 +23,41 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border BorderThickness="5 5 0 0" BorderBrush="Red"/>
-            <Border BorderThickness="5 0 5 5" BorderBrush="Red" Grid.Row="1"/>
+            <Border Background="Transparent" BorderThickness="5 5 0 0" BorderBrush="Red" CornerRadius="15 0 0 0"/>
+            <Border Background="Transparent" BorderThickness="5 0 5 5" BorderBrush="Red" Grid.Row="1" CornerRadius="0 00 15 15"/>
             <Grid Grid.RowSpan="2" Background="Transparent" Margin="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-
-                    <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="5">
-                    <StackPanel   HorizontalAlignment="Center">
+                    <Border Style="{StaticResource MainBorderTheme}" Margin="5">
+                        <StackPanel   HorizontalAlignment="Center">
                             <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
-                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                                <ListBox Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoinFrom}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
-                                                <StackPanel  Orientation="Horizontal">
-                                                    <Label Content="{Binding Symbol}"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                        </Border>
-                    </StackPanel>
-                </Border>
+                            <UI:ListBoxComponent ItemsSoure="{Binding Coins}" SelectedItems="{Binding SelectedCoinFrom}">
+                                <UI:ListBoxComponent.AdditionalContent>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Symbol}"/>
+                                    </DataTemplate>
+                                </UI:ListBoxComponent.AdditionalContent>
+                            </UI:ListBoxComponent>
+                           
+                        </StackPanel>
+                    </Border>
                 </ScrollViewer>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1"  Margin="5">
-
-                    <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
-                    <StackPanel   HorizontalAlignment="Center">
-                        <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
-                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                                <ListBox Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValuteTo}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
-                                                <StackPanel  Orientation="Horizontal">
-                                                    <Label Content="{Binding Symbol}"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Border>
-                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            
-                        </Border>
-                    </StackPanel>
-                </Border>
+                    <Border Style="{StaticResource MainBorderTheme}">
+                        <StackPanel   HorizontalAlignment="Center">
+                            <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
+                            <UI:ListBoxComponent ItemsSoure="{Binding Valutes}" SelectedItems="{Binding SelectedValuteTo}">
+                                <UI:ListBoxComponent.AdditionalContent>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Symbol}"/>
+                                    </DataTemplate>
+                                </UI:ListBoxComponent.AdditionalContent>
+                            </UI:ListBoxComponent>
+                        </StackPanel>
+                    </Border>
                 </ScrollViewer>
 
             </Grid>
@@ -82,9 +67,9 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border BorderThickness="0 5 5 5" BorderBrush="Red"/>
+            <Border BorderThickness="0 5 5 5" Margin="-5 0 0 0" BorderBrush="Red" Background="Transparent" CornerRadius="0 15 15 0"/>
             <StackPanel Margin="-5 5 5 5" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
+                <Border Style="{StaticResource MainBorderTheme}" Grid.Column="1" Margin="5">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0">
                             <Label Content="{DynamicResource IHave}" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -107,23 +92,15 @@
                             <Label Content="{Binding SelectedCoinFrom.Symbol}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinFrom.PriceUSD}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
-                        <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
-                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Convert}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label  FontSize="15" Content="{DynamicResource Convert}"/>
-                                    <Image Source="/Image/Icons/Convert.png" />
-
-                                </StackPanel>
-                            </Button>
-                        </Border>
+                        <UI:ShowButtonComponent Header="{DynamicResource Convert}" Image="/Image/Icons/Convert.png" Command="{Binding Convert}"/>
                     </StackPanel>
                    
                 </Border>
                     
             </StackPanel>
-            <Border BorderThickness="5 5 0 5" BorderBrush="Blue" Grid.Row="1"/>
+            <Border BorderThickness="5 5 0 5" BorderBrush="Blue" Grid.Row="1" Background="Transparent" CornerRadius="15 0 0 15"/>
             <StackPanel Grid.Row="1" Background="Transparent"  Margin="5 5 -5 5" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
+                <Border Style="{StaticResource MainBorderTheme}"  Grid.Column="1" Margin="5">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0">
                             <Label Content="{DynamicResource IHave}" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -146,14 +123,7 @@
                             <Label Content="{Binding SelectedCoinTo.Symbol}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="{Binding SelectedCoinTo.PriceUSD}" Margin="10" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
-                        <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" Grid.Column="1" Margin="5">
-                            <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Convert}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label  FontSize="15" Content="{DynamicResource Convert}"/>
-                                    <Image Source="/Image/Icons/Convert.png" />
-                                </StackPanel>
-                            </Button>
-                        </Border>
+                        <UI:ShowButtonComponent Header="{DynamicResource Convert}" Image="/Image/Icons/Convert.png" Command="{Binding Convert}"/>
                     </StackPanel>
                 </Border>
             </StackPanel>
@@ -163,59 +133,40 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border BorderThickness="5 5 5 0" BorderBrush="Blue"/>
-            <Border BorderThickness="0 0 5 5" BorderBrush="Blue" Grid.Row="1"/>
+            <Border Margin="0 0 0 -5" BorderThickness="5 5 5 0" Background="Transparent" BorderBrush="Blue" CornerRadius="15 15 0 0"/>
+            <Border BorderThickness="0 0 5 5" Background="Transparent" BorderBrush="Blue" CornerRadius="0 0 15 0" Grid.Row="1"/>
             <Grid Grid.RowSpan="2" Background="Transparent" Margin="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-            
-                <ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="5">
 
-                    <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="5">
+                    <Border Style="{StaticResource MainBorderTheme}">
                         <StackPanel   HorizontalAlignment="Center">
                             <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
-                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                                <ListBox Background="Transparent" BorderBrush="Transparent"  ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValuteFrom}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
-                                                <StackPanel  Orientation="Horizontal">
-                                                    <Label Content="{Binding Symbol}"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Border>
-                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-
-                            </Border>
+                            <UI:ListBoxComponent ItemsSoure="{Binding Valutes}" SelectedItems="{Binding SelectedValuteFrom}">
+                                <UI:ListBoxComponent.AdditionalContent>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Symbol}"/>
+                                    </DataTemplate>
+                                </UI:ListBoxComponent.AdditionalContent>
+                            </UI:ListBoxComponent>
                         </StackPanel>
                     </Border>
                 </ScrollViewer>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1"  Margin="5">
 
-                    <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
+                    <Border Style="{StaticResource MainBorderTheme}" >
                         <StackPanel   HorizontalAlignment="Center">
                             <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
-                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                                <ListBox Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoinTo}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border  BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10" >
-                                                <StackPanel  Orientation="Horizontal">
-                                                    <Label Content="{Binding Symbol}"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Border>
-                            <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-
-                            </Border>
+                            <UI:ListBoxComponent ItemsSoure="{Binding Coins}" SelectedItems="{Binding SelectedCoinTo}">
+                                <UI:ListBoxComponent.AdditionalContent>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Symbol}"/>
+                                    </DataTemplate>
+                                </UI:ListBoxComponent.AdditionalContent>
+                            </UI:ListBoxComponent>
                         </StackPanel>
                     </Border>
                 </ScrollViewer>

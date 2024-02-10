@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NewCryptoApp.Core.UI"
              Name="bigButtonComponent"
              mc:Ignorable="d">
-    <Border Width="200px" Height="50px" BorderThickness="1,1,1,1" CornerRadius="7">
+    <Border Width="200px" Height="50px" Background="Transparent" BorderThickness="1,1,1,1" CornerRadius="7">
         <Button BorderBrush="Transparent" Command="{Binding Command, ElementName=bigButtonComponent}">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Label Margin="10 " Content="{Binding Header, ElementName=bigButtonComponent}"/>

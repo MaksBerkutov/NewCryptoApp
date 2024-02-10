@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="{DynamicResource Limit}"  HorizontalAlignment="Center" Width="52"/>
             <TextBox Grid.Column="1" Margin="5,0,5,0" Text="{Binding Limit, ElementName=limitComponent}"  Style="{StaticResource BottomAlignedTextBoxStyle}"/>
-            <Button Grid.Column="2" BorderBrush="Transparent"  Command="{Binding RefreshCommand, ElementName=limitComponent}">
+            <Button Grid.Column="2"  Command="{Binding RefreshCommand, ElementName=limitComponent}" Style="{StaticResource ImageButton}">
                 <StackPanel>
                     <Image Source="\Image\Icons\Refresh.png" Width="18" Height="20" />
                 </StackPanel>

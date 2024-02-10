@@ -22,6 +22,6 @@
             <UI:MenuButtonComponent Header="{DynamicResource Convertor}" Command="{Binding GoToConverterPage}" Image="/Image/Icons/Convertor.png"/>
             <UI:MenuButtonComponent Header="{DynamicResource Settings}" Command="{Binding GoToSettingPage}" Image="/Image/Icons/Settings.png"/>
         </StackPanel>
-        <Frame  Content="{Binding Content,Mode=TwoWay}" Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" Panel.ZIndex="1"/>
+        <Frame  BorderBrush="Transparent" Content="{Binding Content,Mode=TwoWay}" Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" Panel.ZIndex="1"/>
     </Grid>
 </Window>

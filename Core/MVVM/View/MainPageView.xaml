@@ -18,7 +18,7 @@
             <RowDefinition Height="29*"/>
             <RowDefinition Height="121*"/>
         </Grid.RowDefinitions>
-        <Border Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Background="Gray" BorderThickness="1,1,1,1" CornerRadius="15">
+        <Border Style="{StaticResource BackgroundBorder}">
             <StackPanel  Background="Transparent" Orientation="Horizontal" >
                 <UI:LimitComponent RefreshCommand="{Binding Update}" Limit="{Binding Limit,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 0 "/>
                 <UI:BigButtonComponent Header="{DynamicResource Info}" Command="{Binding ToInfo}" Image="\Image\Icons\Info.png" Margin="10 0 10 0 "/>

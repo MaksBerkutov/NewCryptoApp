@@ -11,17 +11,15 @@
     <UserControl.Resources>
         <convert:MyConverter x:Key="Converts"/>
     </UserControl.Resources>
-    <Border   Margin=" 5 5 5 5" BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10">
-        <StackPanel  Orientation="Horizontal" >
-            <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
-            <WrapPanel  MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource Converts},ConverterParameter='0,8'}" >
-                <UI:ShowPropertyCompnonet PropName="{DynamicResource Id}" Value="{Binding Id}"/>
-                <UI:ShowPropertyCompnonet PropName="{DynamicResource Name}" Value="{Binding Name}"/>
-                <UI:ShowPropertyCompnonet PropName="{DynamicResource Symbol}" Value="{Binding Symbol}"/>
-                <UI:ShowButtonComponent Header="{DynamicResource MoreDetails}" Image="/Image/Icons/Info.png" 
-                    Command="{Binding CommandToMore, ElementName=templateFindNftDTO}" CommandParam="{Binding}"/>
-            </WrapPanel>
-        </StackPanel>
-    </Border>
+    <StackPanel  Orientation="Horizontal" >
+        <Image Source="{Binding Image}" Height="50px"  Margin=" 5 5 20 5"/>
+        <WrapPanel  MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource Converts},ConverterParameter='0,8'}" >
+            <UI:ShowPropertyCompnonet PropName="{DynamicResource Id}" Value="{Binding Id}"/>
+            <UI:ShowPropertyCompnonet PropName="{DynamicResource Name}" Value="{Binding Name}"/>
+            <UI:ShowPropertyCompnonet PropName="{DynamicResource Symbol}" Value="{Binding Symbol}"/>
+            <UI:ShowButtonComponent Header="{DynamicResource MoreDetails}" Image="/Image/Icons/Info.png" 
+            Command="{Binding CommandToMore, ElementName=templateFindNftDTO}" CommandParam="{Binding}"/>
+        </WrapPanel>
+    </StackPanel>
 
 </UserControl>
