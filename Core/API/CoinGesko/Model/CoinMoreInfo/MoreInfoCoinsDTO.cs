@@ -18,7 +18,7 @@ namespace NewCryptoApp.Core.API.CoinGesko.Model
         public string WebSlug { get; set; }
 
         [JsonProperty(PropertyName = "block_time_in_minutes")] 
-        public int BlockTimeMinutes { get; set; }
+        public int? BlockTimeMinutes { get; set; }
 
         [JsonProperty(PropertyName = "hashing_algorithm")] 
         public string HashingAlgorithm { get; set; }
@@ -30,13 +30,13 @@ namespace NewCryptoApp.Core.API.CoinGesko.Model
         public DateTime? Genesisdate { get; set; } = DateTime.MinValue;
 
         [JsonProperty(PropertyName = "last_updated")]
-        public DateTime LastUpdate { get; set; } = DateTime.MinValue;
+        public DateTime? LastUpdate { get; set; } = DateTime.MinValue;
 
         [JsonProperty(PropertyName = "sentiment_votes_down_percentage")]
-        public double SentimentVotesDown { get; set; }
+        public double? SentimentVotesDown { get; set; }
 
         [JsonProperty(PropertyName = "sentiment_votes_up_percentage")]
-        public double SentimentVotesUp { get; set; }
+        public double? SentimentVotesUp { get; set; }
 
 
         [JsonProperty(PropertyName = "description")]

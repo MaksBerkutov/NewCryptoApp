@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewCryptoApp.Core.MVVM.View"
+      xmlns:UI="clr-namespace:NewCryptoApp.Core.UI"
       xmlns:viewModel="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -11,108 +12,66 @@
     <Page.DataContext>
         <viewModel:MoreInfoExchangesViewModel/>
     </Page.DataContext>
-    <Grid>
-        <StackPanel  Orientation="Horizontal">
-            <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="171*"/>
+            <ColumnDefinition Width="507*"/>
+            <ColumnDefinition Width="122*"/>
+        </Grid.ColumnDefinitions>
+        <Border Style="{DynamicResource MainBorderTheme}" Margin="10">
 
-                <StackPanel   HorizontalAlignment="Center">
-                    <Image Source="{Binding Exchanges.Image}" />
+            <StackPanel   HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="{Binding Exchanges.Image}" Height="100"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource Name}" Value="{Binding Exchanges.Name}"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource Country}" Value="{Binding Exchanges.Country}"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource YearEstablished}" Value="{Binding Exchanges.YearEstablished}"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource Centralized}" Value="{Binding Exchanges.Centralized}"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource TrustScore}" Value="{Binding Exchanges.TrustScore}"/>
+                <UI:ShowPropertyCompnonet PropName="{DynamicResource TrustScoreRank}" Value="{Binding Exchanges.TrustScoreRank}"/>
+            </StackPanel>
+        </Border>
+        <TextBox  TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding Exchanges.Description}" IsReadOnly="True" Grid.Column="1"/>
+        <Border Style="{DynamicResource MainBorderTheme}"  Margin="5" Grid.Column="2">
 
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+            <StackPanel HorizontalAlignment="Center"  >
+
+                <Button Padding="0"  BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToTelegram}">
+                    <Button.Content>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource Name}"/>
-                            <Label Content="{Binding Exchanges.Name}"/>
+                            <Image Source="/Image/Icons/Telegram.png" Height="50" />
                         </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    </Button.Content>
+                </Button>
+                <Button Padding="0"  BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToFacebook}">
+                    <Button.Content>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource Country}"/>
-                            <Label Content="{Binding Exchanges.Country}"/>
+                            <Image Source="/Image/Icons/Facebook.png" Height="50" />
                         </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    </Button.Content>
+                </Button>
+                <Button Padding="0"  BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToReddit}">
+                    <Button.Content>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource YearEstablished}"/>
-                            <Label Content="{Binding Exchanges.YearEstablished}"/>
+                            <Image Source="/Image/Icons/Reddit.png" Height="50" />
                         </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    </Button.Content>
+                </Button>
+                <Button Padding="0"  BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToTwitter}">
+                    <Button.Content>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource Centralized}"/>
-                            <Label Content="{Binding Exchanges.Centralized}"/>
+                            <Image Source="/Image/Icons/Twitter.png" Height="50" />
                         </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
+                    </Button.Content>
+                </Button>
+                <Button Padding="0"  BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToSite}">
+                    <Button.Content>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource TrustScore}"/>
-                            <Label Content="{Binding Exchanges.TrustScore}"/>
+                            <Image Source="/Image/Icons/Site.png" Height="50" />
                         </StackPanel>
-                    </Border>
-                    <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource TrustScoreRank}"/>
-                            <Label Content="{Binding Exchanges.TrustScoreRank}"/>
-                        </StackPanel>
-                    </Border>
-
-
-                </StackPanel>
-            </Border>
-            <TextBox  TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxWidth="500"  Text="{Binding Exchanges.Description}" IsReadOnly="True"/>
-            <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
-
-                <StackPanel   HorizontalAlignment="Center">
-
-                    <Button Padding="0" Background="Transparent" BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToTelegram}">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Image/Icons/Telegram.png" Height="50" />
-                            </StackPanel>
-                        </Button.Content>
-                    </Button>
-                    <Button Padding="0" Background="Transparent" BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToFacebook}">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Image/Icons/Facebook.png" Height="50" />
-                            </StackPanel>
-                        </Button.Content>
-                    </Button>
-                    <Button Padding="0" Background="Transparent" BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToReddit}">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Image/Icons/Reddit.png" Height="50" />
-                            </StackPanel>
-                        </Button.Content>
-                    </Button>
-                    <Button Padding="0" Background="Transparent" BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToTwitter}">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Image/Icons/Twitter.png" Height="50" />
-                            </StackPanel>
-                        </Button.Content>
-                    </Button>
-                    <Button Padding="0" Background="Transparent" BorderBrush="Transparent" Margin="0 10 0 10" Command="{Binding GoToSite}">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Image/Icons/Site.png" Height="50" />
-                            </StackPanel>
-                        </Button.Content>
-                    </Button>
-                    <Border    BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="10">
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}" Padding="0">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="{DynamicResource Back}"/>
-                                    <Image Source="/Image/Icons/Back.png" Height="25" />
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-                    </Border>
-
-
-
-                </StackPanel>
-            </Border>
-        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <UI:ShowButtonComponent Header="{DynamicResource Back}" Image="/Image/Icons/Back.png" Command="{Binding Back}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

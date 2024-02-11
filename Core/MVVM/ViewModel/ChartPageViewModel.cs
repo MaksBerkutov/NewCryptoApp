@@ -99,7 +99,7 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             }
         }
 
-        private bool isDay = false;
+        private bool isDay = true;
         public bool IsDay
         {
             get => isDay;
@@ -110,7 +110,7 @@ namespace NewCryptoApp.Core.MVVM.ViewModel
             }
         }
 
-        private bool isHour = true;
+        private bool isHour = false;
         public bool IsHour
         {
             get => isHour;

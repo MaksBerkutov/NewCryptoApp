@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewCryptoApp.Core.MVVM.View"
+      xmlns:UI="clr-namespace:NewCryptoApp.Core.UI"
       xmlns:viewModels="clr-namespace:NewCryptoApp.Core.MVVM.ViewModel"
 
       mc:Ignorable="d" 
@@ -12,100 +13,32 @@
     <Page.DataContext>
         <viewModels:InfoPageViewModel />
     </Page.DataContext>
-    <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel  Orientation="Horizontal">
-                <Border   BorderBrush="Bisque" Background="Beige" BorderThickness="2" CornerRadius="10"  Margin="0 0 20 0">
-                    <StackPanel   HorizontalAlignment="Center">
-                        <Image Source="{Binding Image}" Height="100" />
-                       
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource Id}"/>
-                                <Label Content="{Binding MoreInfo.Id}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource Name}"/>
-                                <Label Content="{Binding MoreInfo.Name}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource HashingAlgorithm}"/>
-                                <Label Content="{Binding MoreInfo.HashingAlgorithm}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource CountryOrigin}"/>
-                                <Label Content="{Binding MoreInfo.CountryOrigin}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource Genesisdate}"/>
-                                <Label Content="{Binding MoreInfo.Genesisdate}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource Symbol}"/>
-                                <Label Content="{Binding MoreInfo.Symbol}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource WebSlug}"/>
-                                <Label Content="{Binding MoreInfo.WebSlug}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource BlockTimeMinutes}"/>
-                                <Label Content="{Binding MoreInfo.BlockTimeMinutes}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource LastUpdate}"/>
-                                <Label Content="{Binding MoreInfo.LastUpdate}"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque"  Background="LightGreen" BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource SentimentVotesUp}"/>
-                                <Label Content="{Binding MoreInfo.SentimentVotesUp}"/>
-                                <Label Content="%"/>
-                            </StackPanel>
-                        </Border>
-                        <Border  Margin=" 5 5 5 5" BorderBrush="Bisque" Background="OrangeRed"  BorderThickness="2" CornerRadius="10">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{DynamicResource SentimentVotesDown}"/>
-                                <Label Content="{Binding MoreInfo.SentimentVotesDown}"/>
-                                <Label Content="%"/>
-                            </StackPanel>
-                        </Border>
-                        
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding GoToTradePage}">
-                            <StackPanel Orientation="Horizontal">
-                                <Label  FontSize="15" Content="{DynamicResource ToTrade}"/>
-                                <Image Source="/Image/Icons/Trade.png" />
-                            </StackPanel>
-                           
-                        </Button>
-                        <Button Background="Transparent" BorderBrush="Transparent" Command="{Binding Back}">
-                            <StackPanel Orientation="Horizontal">
-                                <Label  FontSize="15" Content="{DynamicResource Back}"/>
-                                <Image Source="/Image/Icons/Back.png" />
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </Border>
-                
-                <TextBox  TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxWidth="500"  Text="{Binding MoreInfo.Description.En}" IsReadOnly="True"/>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="299*"/>
+            </Grid.ColumnDefinitions>
+            <Border Style="{DynamicResource MainBorderTheme}" >
+                <StackPanel HorizontalAlignment="Center">
+                    <Image Source="{Binding Image}" Height="100" />
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource Id}" Value="{Binding MoreInfo.Id}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource Name}" Value="{Binding MoreInfo.Name}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource HashingAlgorithm}" Value="{Binding MoreInfo.HashingAlgorithm}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource CountryOrigin}" Value="{Binding MoreInfo.CountryOrigin}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource Genesisdate}" Value="{Binding MoreInfo.Genesisdate}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource Symbol}" Value="{Binding MoreInfo.Symbol}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource WebSlug}" Value="{Binding MoreInfo.WebSlug}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource BlockTimeMinutes}" Value="{Binding MoreInfo.BlockTimeMinutes}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource LastUpdate}" Value="{Binding MoreInfo.LastUpdate}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource SentimentVotesUp}" Value="{Binding MoreInfo.SentimentVotesUp}"/>
+                    <UI:ShowPropertyCompnonet PropName="{DynamicResource SentimentVotesDown}" Value="{Binding MoreInfo.SentimentVotesDown}"/>
+                    <UI:ShowButtonComponent Image="/Image/Icons/Trade.png" Header="{DynamicResource ToTrade}" Command="{Binding GoToTradePage}"/>
+                    <UI:ShowButtonComponent Image="/Image/Icons/Back.png" Header="{DynamicResource Back}" Command="{Binding Back}"/>
+                </StackPanel>
+            </Border>
+
+            <TextBox Margin="20" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Grid.Column="1" Text="{Binding MoreInfo.Description.En}" IsReadOnly="True"/>
+        </Grid>
+    </ScrollViewer>
 </Page>

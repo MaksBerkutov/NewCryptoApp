@@ -106,6 +106,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\GeneralModel\ResourcesModel.cs" />
+    <Compile Include="Core\Theme\ThemeController.cs" />
+    <Compile Include="Core\UI\BigButtonComponent.xaml.cs">
+      <DependentUpon>BigButtonComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\LimitComponent.xaml.cs">
+      <DependentUpon>LimitComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\ListBoxComponent.xaml.cs">
+      <DependentUpon>ListBoxComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\MenuButtonComponent.xaml.cs">
+      <DependentUpon>MenuButtonComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\SearchBarComponent.xaml.cs">
+      <DependentUpon>SearchBarComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\ShowButtonComponent.xaml.cs">
+      <DependentUpon>ShowButtonComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\ShowInnerContentComponent.xaml.cs">
+      <DependentUpon>ShowInnerContentComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\ShowPropertyCompnonet.xaml.cs">
+      <DependentUpon>ShowPropertyCompnonet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\Template\TemplateCoinDTO.xaml.cs">
+      <DependentUpon>TemplateCoinDTO.xaml</DependentUpon>
+    </Compile>
     <Page Include="Core\Lang\Resources.en.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +180,66 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Core\MVVM\View\TradePageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Theme\Resources.white.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\Theme\Resources.dark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\BigButtonComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\LimitComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\ListBoxComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\MenuButtonComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\SearchBarComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\ShowButtonComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\ShowInnerContentComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\ShowPropertyCompnonet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\Template\TemplateCoinDTO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\Template\TemplateFindCoinsDTO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\Template\TemplateFindExchangesDTO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\Template\TemplateFindNftDTO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\UI\Template\TemplateTradeVariation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +324,18 @@
     <Compile Include="Core\Services\Chart\ChartTypes\SignalChart.cs" />
     <Compile Include="Core\Services\ConvertValute\ConvertedValuteService.cs" />
     <Compile Include="Core\Store.cs" />
+    <Compile Include="Core\UI\Template\TemplateFindCoinsDTO.xaml.cs">
+      <DependentUpon>TemplateFindCoinsDTO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\Template\TemplateFindExchangesDTO.xaml.cs">
+      <DependentUpon>TemplateFindExchangesDTO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\Template\TemplateFindNftDTO.xaml.cs">
+      <DependentUpon>TemplateFindNftDTO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\UI\Template\TemplateTradeVariation.xaml.cs">
+      <DependentUpon>TemplateTradeVariation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

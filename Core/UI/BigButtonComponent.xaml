@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="NewCryptoApp.Core.UI.BigButtonComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NewCryptoApp.Core.UI"
+             Name="bigButtonComponent"
+             mc:Ignorable="d">
+    <Border Width="200px" Height="50px" Background="Transparent" BorderThickness="1,1,1,1" CornerRadius="7">
+        <Button BorderBrush="Transparent" Command="{Binding Command, ElementName=bigButtonComponent}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Margin="10 " Content="{Binding Header, ElementName=bigButtonComponent}"/>
+                <Image Source="{Binding Image, ElementName=bigButtonComponent}" Width="18" Height="20" />
+            </StackPanel>
+        </Button>
+    </Border>
+</UserControl>

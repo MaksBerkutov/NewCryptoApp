@@ -28,6 +28,9 @@
     <!--Only SettingsPageView.xaml-->
     <sys:String x:Key="Lang">Language</sys:String>
     <sys:String x:Key="Theme">Theme</sys:String>
+    <sys:String x:Key="Dark">Dark</sys:String>
+    <sys:String x:Key="White">White</sys:String>
+    
 
     <!--Only SearchPageView.xaml-->
     <sys:String x:Key="MarketCupRank">Market Cup Rank</sys:String>
