@@ -15,7 +15,7 @@ namespace NewCryptoApp
         public App()
         {
             LanguageController.CurrentCode = "en";
-            ThemeController.CurrentCode = "white";
+            ThemeController.CurrentCode = "dark";
             Navigate.RegisterStaticPage<MainPageView>();
             Navigate.RegisterStaticPage<SettingPageView>();
             Navigate.RegisterStaticPage<ConvertorPageView>();
