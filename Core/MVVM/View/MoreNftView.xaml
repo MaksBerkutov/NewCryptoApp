@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="101*"/>
                 <ColumnDefinition Width="294*"/>
             </Grid.ColumnDefinitions>
-            <Border Style="{StaticResource InnerBorderThemeTwo}"  Margin="10">
+            <Border Style="{DynamicResource InnerBorderThemeTwo}"  Margin="10">
                 <StackPanel   HorizontalAlignment="Center">
                     <Image Source="{Binding Image}" Width="100" />
 
@@ -66,7 +66,7 @@
 
                         </UI:ShowInnerContentComponent>
                     </UI:ShowInnerContentComponent>
-                    <UI:BigButtonComponent Header="{DynamicResource Back}" Image="/Image/Icons/Back.png" Command="{Binding  Back}"/>
+                    <UI:ShowButtonComponent Header="{DynamicResource Back}" Image="/Image/Icons/Back.png" Command="{Binding  Back}"/>
                 </StackPanel>
             </Border>
             <TextBox Grid.Column="1" TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxWidth="380" Text="{Binding InfoNft.Description}" IsReadOnly="True"/>

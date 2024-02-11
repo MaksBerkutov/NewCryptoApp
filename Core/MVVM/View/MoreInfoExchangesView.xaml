@@ -18,7 +18,7 @@
             <ColumnDefinition Width="507*"/>
             <ColumnDefinition Width="122*"/>
         </Grid.ColumnDefinitions>
-        <Border Style="{StaticResource MainBorderTheme}" Margin="10">
+        <Border Style="{DynamicResource MainBorderTheme}" Margin="10">
 
             <StackPanel   HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Image Source="{Binding Exchanges.Image}" Height="100"/>
@@ -31,7 +31,7 @@
             </StackPanel>
         </Border>
         <TextBox  TextWrapping="Wrap"   VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding Exchanges.Description}" IsReadOnly="True" Grid.Column="1"/>
-        <Border Style="{StaticResource MainBorderTheme}"  Margin="5" Grid.Column="2">
+        <Border Style="{DynamicResource MainBorderTheme}"  Margin="5" Grid.Column="2">
 
             <StackPanel HorizontalAlignment="Center"  >
 

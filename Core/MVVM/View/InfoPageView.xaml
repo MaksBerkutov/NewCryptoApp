@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="101*"/>
                 <ColumnDefinition Width="299*"/>
             </Grid.ColumnDefinitions>
-            <Border Style="{StaticResource MainBorderTheme}" >
+            <Border Style="{DynamicResource MainBorderTheme}" >
                 <StackPanel HorizontalAlignment="Center">
                     <Image Source="{Binding Image}" Height="100" />
                     <UI:ShowPropertyCompnonet PropName="{DynamicResource Id}" Value="{Binding MoreInfo.Id}"/>

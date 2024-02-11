@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NewCryptoApp.Core.UI"
              Name="showPropertyCompnonet"
              mc:Ignorable="d">
-    <Border Style="{StaticResource InnerBorderTheme}" CornerRadius="10">
+    <Border Style="{DynamicResource InnerBorderTheme}" CornerRadius="10">
         <WrapPanel Orientation="Horizontal">
             <Label Content="{Binding PropName , ElementName=showPropertyCompnonet}"/>
             <Label Content="{Binding Value, ElementName=showPropertyCompnonet}"/>

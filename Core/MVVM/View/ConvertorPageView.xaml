@@ -31,7 +31,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Border Style="{StaticResource MainBorderTheme}" Margin="5">
+                    <Border Style="{DynamicResource MainBorderTheme}" Margin="5">
                         <StackPanel   HorizontalAlignment="Center">
                             <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
                             <UI:ListBoxComponent ItemsSoure="{Binding Coins}" SelectedItems="{Binding SelectedCoinFrom}">
@@ -46,7 +46,7 @@
                     </Border>
                 </ScrollViewer>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1"  Margin="5">
-                    <Border Style="{StaticResource MainBorderTheme}">
+                    <Border Style="{DynamicResource MainBorderTheme}">
                         <StackPanel   HorizontalAlignment="Center">
                             <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
                             <UI:ListBoxComponent ItemsSoure="{Binding Valutes}" SelectedItems="{Binding SelectedValuteTo}">
@@ -69,7 +69,7 @@
             </Grid.RowDefinitions>
             <Border BorderThickness="0 5 5 5" Margin="-5 0 0 0" BorderBrush="Red" Background="Transparent" CornerRadius="0 15 15 0"/>
             <StackPanel Margin="-5 5 5 5" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border Style="{StaticResource MainBorderTheme}" Grid.Column="1" Margin="5">
+                <Border Style="{DynamicResource MainBorderTheme}" Grid.Column="1" Margin="5">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0">
                             <Label Content="{DynamicResource IHave}" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -100,7 +100,7 @@
             </StackPanel>
             <Border BorderThickness="5 5 0 5" BorderBrush="Blue" Grid.Row="1" Background="Transparent" CornerRadius="15 0 0 15"/>
             <StackPanel Grid.Row="1" Background="Transparent"  Margin="5 5 -5 5" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border Style="{StaticResource MainBorderTheme}"  Grid.Column="1" Margin="5">
+                <Border Style="{DynamicResource MainBorderTheme}"  Grid.Column="1" Margin="5">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0">
                             <Label Content="{DynamicResource IHave}" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -142,7 +142,7 @@
                 </Grid.ColumnDefinitions>
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="5">
-                    <Border Style="{StaticResource MainBorderTheme}">
+                    <Border Style="{DynamicResource MainBorderTheme}">
                         <StackPanel   HorizontalAlignment="Center">
                             <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
                             <UI:ListBoxComponent ItemsSoure="{Binding Valutes}" SelectedItems="{Binding SelectedValuteFrom}">
@@ -157,7 +157,7 @@
                 </ScrollViewer>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1"  Margin="5">
 
-                    <Border Style="{StaticResource MainBorderTheme}" >
+                    <Border Style="{DynamicResource MainBorderTheme}" >
                         <StackPanel   HorizontalAlignment="Center">
                             <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
                             <UI:ListBoxComponent ItemsSoure="{Binding Coins}" SelectedItems="{Binding SelectedCoinTo}">

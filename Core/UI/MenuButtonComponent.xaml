@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NewCryptoApp.Core.UI"
              Name="menuButtonComponent"
              mc:Ignorable="d">
-    <Button Style="{StaticResource MenuItemButton}" Command="{Binding Command, ElementName=menuButtonComponent}">
+    <Button Style="{DynamicResource MenuItemButton}" Command="{Binding Command, ElementName=menuButtonComponent}">
         <Button.Content>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Label FontSize="16" Content="{Binding Header, ElementName=menuButtonComponent}"/>

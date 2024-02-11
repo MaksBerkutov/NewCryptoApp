@@ -19,45 +19,45 @@
         </Grid.ColumnDefinitions>
         <ScottPlot:WpfPlot x:Name="WpfPlot1"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto"  Grid.Column="1" HorizontalAlignment="Stretch">
-            <Border   Style="{StaticResource MainBorderTheme}" >
+            <Border   Style="{DynamicResource MainBorderTheme}" >
 
                 <StackPanel  >
-                    <Border  Style="{StaticResource InnerBorderTheme}">
+                    <Border  Style="{DynamicResource InnerBorderTheme}">
                         <StackPanel>
                             <Label Content="{DynamicResource From}" HorizontalAlignment="Center"/>
                             <Label Content="{Binding From}" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
-                    <Border Style="{StaticResource InnerBorderTheme}">
+                    <Border Style="{DynamicResource InnerBorderTheme}">
                         <StackPanel>
                             <Label Content="{DynamicResource To}" HorizontalAlignment="Center"/>
                             <Label Content="{Binding To}" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
-                    <Border  Style="{StaticResource InnerBorderTheme}">
+                    <Border  Style="{DynamicResource InnerBorderTheme}">
                         <StackPanel>
                             <Label Content="{DynamicResource CountPoint}" HorizontalAlignment="Center"/>
                             <TextBox Text="{Binding CountPoint, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" HorizontalAlignment="Center" BorderBrush="Transparent" />
 
                         </StackPanel>
                     </Border>
-                    <ComboBox Margin="5" ItemsSource="{Binding ChartType}" SelectedItem="{Binding SelectedChartType}" Style="{StaticResource ComboBoxTest2}" />
+                    <ComboBox Margin="5" ItemsSource="{Binding ChartType}" SelectedItem="{Binding SelectedChartType}" Style="{DynamicResource ComboBoxTest2}" />
 
-                    <Border  Style="{StaticResource InnerBorderTheme}">
+                    <Border  Style="{DynamicResource InnerBorderTheme}">
                         <StackPanel>
                             <Label Content="{DynamicResource Valute}" HorizontalAlignment="Center"/>
-                            <ComboBox Margin="10" ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValutes}" Style="{StaticResource ComboBoxTest2}" />
+                            <ComboBox Margin="10" ItemsSource="{Binding Valutes}" SelectedItem="{Binding SelectedValutes}" Style="{DynamicResource ComboBoxTest2}" />
 
                         </StackPanel>
                     </Border>
-                    <Border Style="{StaticResource InnerBorderTheme}">
+                    <Border Style="{DynamicResource InnerBorderTheme}">
                         <StackPanel Margin="10">
                             <RadioButton IsChecked="{Binding IsDay}" Content="{DynamicResource DayPair}" GroupName="Chart"/>
                             <RadioButton IsChecked="{Binding IsHour}" Content="{DynamicResource HourPair}" GroupName="Chart"/>
                             <RadioButton IsChecked="{Binding IsMinute}" Content="{DynamicResource MinutePair}" GroupName="Chart"/>
                         </StackPanel>
                     </Border>
-                    <Border Style="{StaticResource InnerBorderTheme}">
+                    <Border Style="{DynamicResource InnerBorderTheme}">
                         <StackPanel>
                             <Label  FontSize="15" Content="{DynamicResource Show}" HorizontalAlignment="Center"/>
                             <Button Margin="5" Command="{Binding Volume}">

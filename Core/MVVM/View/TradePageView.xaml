@@ -32,7 +32,7 @@
                 <ColumnDefinition Width="27*"/>
             </Grid.ColumnDefinitions>
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <Border   Style="{StaticResource MainBorderTheme}" Margin="0 0 20 0">
+                <Border   Style="{DynamicResource MainBorderTheme}" Margin="0 0 20 0">
                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
                         <StackPanel>
                             <UI:ShowPropertyCompnonet PropName="{DynamicResource Timestamp}" Value="{Binding SelectedTicker.Timestamp}"/>
@@ -98,16 +98,16 @@
             <Grid  Grid.Column="1">
                 <StackPanel Background="Transparent" Margin="0" Orientation="Vertical" >
 
-                    <Border Style="{StaticResource InnerBorderTheme}" CornerRadius="10"  Margin="10">
+                    <Border Style="{DynamicResource InnerBorderTheme}" CornerRadius="10"  Margin="10">
                         <WrapPanel Orientation="Horizontal" Margin="10 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Label Content="{DynamicResource Base}"/>
-                            <ComboBox  Style="{StaticResource ComboBoxTest2}" MinWidth="60" ItemsSource="{Binding BaseCoin}" SelectedItem="{Binding SelectedBaseCoin,UpdateSourceTrigger=PropertyChanged}"/>
+                            <ComboBox  Style="{DynamicResource ComboBoxTest2}" MinWidth="60" ItemsSource="{Binding BaseCoin}" SelectedItem="{Binding SelectedBaseCoin,UpdateSourceTrigger=PropertyChanged}"/>
                         </WrapPanel>
                     </Border>
-                    <Border Style="{StaticResource InnerBorderTheme}" CornerRadius="10"  Margin="10" >
+                    <Border Style="{DynamicResource InnerBorderTheme}" CornerRadius="10"  Margin="10" >
                         <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10 0 10 0"  HorizontalAlignment="Center">
                             <Label Content="{DynamicResource Target}" />
-                            <ComboBox Style="{StaticResource ComboBoxTest2}"  MinWidth="60" ItemsSource="{Binding TargetCoin}" SelectedItem="{Binding SelectedTargetCoin,UpdateSourceTrigger=PropertyChanged}"/>
+                            <ComboBox Style="{DynamicResource ComboBoxTest2}"  MinWidth="60" ItemsSource="{Binding TargetCoin}" SelectedItem="{Binding SelectedTargetCoin,UpdateSourceTrigger=PropertyChanged}"/>
                         </WrapPanel>
                     </Border>
                     <UI:ShowButtonComponent Header="{DynamicResource ClearFilter}" Image="/Image/Icons/ClearFilter.png" Command="{Binding ClearFilter}"/>

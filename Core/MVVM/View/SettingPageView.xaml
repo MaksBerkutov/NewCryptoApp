@@ -16,18 +16,18 @@
             <ColumnDefinition Width="23*"/>
             <ColumnDefinition Width="77*"/>
         </Grid.ColumnDefinitions>
-        <Border Style="{StaticResource MainBorderTheme}" Margin="0 0 20 0">
+        <Border Style="{DynamicResource MainBorderTheme}" Margin="0 0 20 0">
             <StackPanel   HorizontalAlignment="Center">
-                <Border  Margin="10" Style="{StaticResource MainBorderTheme}">
+                <Border  Margin="10" Style="{DynamicResource MainBorderTheme}">
                     <StackPanel >
                         <Label Content="{DynamicResource Lang}" HorizontalAlignment="Center"/>
-                        <ComboBox MinWidth="100" ItemsSource="{Binding AllLang}" SelectedItem="{Binding SelectedLang}" Margin="10" Style="{StaticResource ComboBoxTest2}"/>
+                        <ComboBox MinWidth="100" ItemsSource="{Binding AllLang}" SelectedItem="{Binding SelectedLang}" Margin="10" Style="{DynamicResource ComboBoxTest2}"/>
                     </StackPanel>
                 </Border>
-                <Border  Margin="10" Style="{StaticResource MainBorderTheme}" >
+                <Border  Margin="10" Style="{DynamicResource MainBorderTheme}" >
                     <StackPanel >
                         <Label Content="{DynamicResource Theme}" HorizontalAlignment="Center" />
-                        <ComboBox MinWidth="100" ItemsSource="{Binding AllTheme}" SelectedItem="{Binding SelectedTheme}"  Margin="10" Style="{StaticResource ComboBoxTest2}">
+                        <ComboBox MinWidth="100" ItemsSource="{Binding AllTheme}" SelectedItem="{Binding SelectedTheme}"  Margin="10" Style="{DynamicResource ComboBoxTest2}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">

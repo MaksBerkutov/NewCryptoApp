@@ -11,7 +11,7 @@
         <convert:MyConverter x:Key="Converts"/>
     </UserControl.Resources>
     <Grid>
-        <Border Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page},Converter={StaticResource Converts},ConverterParameter='0,5'}"  Background="LightGray" Height="50px"   HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="10" BorderThickness="1,1,1,1" CornerRadius="15">
+        <Border Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Page},Converter={StaticResource Converts},ConverterParameter='0,5'}"  Background="LightGray" Height="50px"   HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="10" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="15">
             <Grid VerticalAlignment="Stretch" Background="Transparent">
 
                 <Grid.ColumnDefinitions>
