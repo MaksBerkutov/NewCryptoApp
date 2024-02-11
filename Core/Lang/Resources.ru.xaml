@@ -13,7 +13,6 @@
     <sys:String x:Key="Chart">График</sys:String>
 
     <!--Only TradePageView.xaml-->
-    <!--Only TradePageView.xaml-->
     <sys:String x:Key="Timestamp">Временная метка</sys:String>
     <sys:String x:Key="Base">Базовый</sys:String>
     <sys:String x:Key="Target">Цель</sys:String>
@@ -29,6 +28,8 @@
     <!--Only SettingsPageView.xaml-->
     <sys:String x:Key="Lang">Язык</sys:String>
     <sys:String x:Key="Theme">Тема</sys:String>
+    <sys:String x:Key="Dark">Тёмная</sys:String>
+    <sys:String x:Key="White">Светлая</sys:String>
 
     <!--Only SearchPageView.xaml-->
     <sys:String x:Key="MarketCupRank">Рейтинг рыночной капитализации</sys:String>

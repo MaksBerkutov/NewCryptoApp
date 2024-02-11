@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows;
+using NewCryptoApp.Core.GeneralModel;
 
 namespace NewCryptoApp.Core.Lang
 {
-    public class CultureLang
+
+    public class LanguageController
     {
-        public string Code { get; set; }
-        public string Name { get; set; }
-        public override string ToString() => Name;
-    }
-    public class LanguageManager
-    {
-        public static readonly CultureLang[] Lang = new CultureLang[]
+        public static readonly ResourcesModel[] Lang = new ResourcesModel[]
         {
-            new CultureLang(){Name = "Українська", Code ="ua"},
-            new CultureLang(){Name = "English", Code ="en"},
-            new CultureLang(){Name = "русский", Code ="ru"},
+            new ResourcesModel(){Name = "Українська", Code ="ua"},
+            new ResourcesModel(){Name = "English", Code ="en"},
+            new ResourcesModel(){Name = "русский", Code ="ru"},
         };
+        private static ResourceDictionary CurrentDictionary;
+
         private static string currentCode;
         public static string CurrentCode
         {
@@ -32,17 +28,13 @@ namespace NewCryptoApp.Core.Lang
         private static void UpdateLanguageResources()
         {
 
-            Application.Current.Resources.MergedDictionaries.Clear();
-            var resourceDictionary = new ResourceDictionary()
+            Application.Current.Resources.MergedDictionaries.Remove(CurrentDictionary);
+            CurrentDictionary = new ResourceDictionary()
             {
                 Source = new Uri($"Core/Lang/Resources.{currentCode}.xaml", UriKind.Relative)
             };
-            Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
-            var theme = new ResourceDictionary()
-            {
-                Source = new Uri($"Core/Theme/theme.dark.xaml", UriKind.Relative)
-            };
-            Application.Current.Resources.MergedDictionaries.Add(theme);
+            Application.Current.Resources.MergedDictionaries.Add(CurrentDictionary);
+            
         }
     }
 }

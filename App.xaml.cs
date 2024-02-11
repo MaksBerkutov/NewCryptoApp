@@ -2,6 +2,7 @@
 using NewCryptoApp.Core;
 using NewCryptoApp.Core.Lang;
 using System.Windows;
+using NewCryptoApp.Core.Theme;
 
 
 namespace NewCryptoApp
@@ -13,7 +14,8 @@ namespace NewCryptoApp
     {
         public App()
         {
-            LanguageManager.CurrentCode = "en";
+            LanguageController.CurrentCode = "en";
+            ThemeController.CurrentCode = "dark";
             Navigate.RegisterStaticPage<MainPageView>();
             Navigate.RegisterStaticPage<SettingPageView>();
             Navigate.RegisterStaticPage<ConvertorPageView>();

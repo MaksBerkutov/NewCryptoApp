@@ -106,6 +106,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\GeneralModel\ResourcesModel.cs" />
+    <Compile Include="Core\Theme\ThemeController.cs" />
     <Compile Include="Core\UI\BigButtonComponent.xaml.cs">
       <DependentUpon>BigButtonComponent.xaml</DependentUpon>
     </Compile>
@@ -181,7 +183,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Core\Theme\theme.dark.xaml">
+    <Page Include="Core\Theme\Resources.white.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Core\Theme\Resources.dark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

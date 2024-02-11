@@ -28,6 +28,8 @@
     <!--Only SettingsPageView.xaml-->
     <sys:String x:Key="Lang">Мова</sys:String>
     <sys:String x:Key="Theme">Тема</sys:String>
+    <sys:String x:Key="Dark">Темна</sys:String>
+    <sys:String x:Key="White">Світла</sys:String>
 
     <!--Only SearchPageView.xaml-->
     <sys:String x:Key="MarketCupRank">Рейтинг ринкової капіталізації</sys:String>

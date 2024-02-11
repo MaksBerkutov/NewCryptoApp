@@ -27,7 +27,28 @@
                 <Border  Margin="10" Style="{StaticResource MainBorderTheme}" >
                     <StackPanel >
                         <Label Content="{DynamicResource Theme}" HorizontalAlignment="Center" />
-                        <ComboBox MinWidth="100"   Margin="10" Style="{StaticResource ComboBoxTest2}"/>
+                        <ComboBox MinWidth="100" ItemsSource="{Binding AllTheme}" SelectedItem="{Binding SelectedTheme}"  Margin="10" Style="{StaticResource ComboBoxTest2}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="Label">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Code}" Value="dark">
+                                                        <Setter Property="Content" Value="{DynamicResource Dark}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Code}" Value="white">
+                                                        <Setter Property="Content"  Value="{DynamicResource White}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Label  />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                            
+                        </ComboBox>
                     </StackPanel>
                 </Border>
             </StackPanel>
